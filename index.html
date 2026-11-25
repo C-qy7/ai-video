@@ -1,0 +1,2060 @@
+
+<!-- ===== build: concatenated parts ===== -->
+
+<!-- ===== head.html ===== -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e2a5c">
+<title>AI视频短剧生成师 · 面试学习助手</title>
+<style>
+:root{
+  --bg:#eef2f8; --card:#ffffff; --ink:#1e2c3c; --muted:#64748b;
+  --navy:#0e2a5c; --blue:#1d4ed8; --sky:#0ea5e9; --line:#e4eaf3;
+  --green:#15803d; --greenbg:#e8f7ee; --amber:#b45309; --amberbg:#fdf3e2;
+  --red:#b91c1c; --redbg:#fdeaea; --coral:#e85d4a; --coralbg:#fdf1ee;
+  --shadow:0 1px 3px rgba(14,42,92,.05),0 5px 16px rgba(14,42,92,.06);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{max-width:100%;overflow-x:hidden}
+body{font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;background:linear-gradient(180deg,#e9eff8 0%,var(--bg) 240px);color:var(--ink);line-height:1.7}
+.app{width:100%;max-width:1120px;margin:0 auto;padding:0 16px 60px}
+header{background:linear-gradient(120deg,#0a1f47 0%,#16408f 55%,#0e6fb8 100%);color:#fff;border-radius:20px;padding:28px 28px 24px;margin:18px 0 14px;box-shadow:0 10px 28px rgba(14,42,92,.28)}
+header h1{font-size:23px;letter-spacing:.5px}
+header p{font-size:13px;opacity:.86;margin-top:6px}
+nav{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;gap:7px;background:rgba(238,242,248,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:10px 2px 12px;margin:0 0 18px;border-bottom:1px solid rgba(228,234,243,.8)}
+nav button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600;transition:.15s;box-shadow:0 1px 2px rgba(14,42,92,.04);white-space:nowrap}
+nav button:hover{border-color:var(--sky);color:var(--blue);transform:translateY(-1px)}
+nav button.active{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-color:transparent;box-shadow:0 3px 10px rgba(29,78,216,.35)}
+.tab{display:none}
+.tab.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow)}
+h2.sec{font-size:18px;margin:26px 0 12px;color:var(--navy);padding-left:12px;border-left:4px solid var(--sky);line-height:1.45}
+h2.sec .sub{font-size:12.5px;color:var(--muted);font-weight:normal;margin-left:8px}
+.muted{color:var(--muted);font-size:13px}
+.small{font-size:12px}
+.badge{display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:999px;background:#e8f0fd;color:var(--blue);margin-left:6px;font-weight:600;white-space:nowrap}
+.badge.blue{background:#e8f0fd;color:var(--blue)}
+.badge.amber{background:var(--amberbg);color:var(--amber)}
+.badge.red{background:var(--redbg);color:var(--red)}
+.badge.green{background:var(--greenbg);color:var(--green)}
+.badge.coral{background:var(--coralbg);color:var(--coral)}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:23px;color:var(--navy);line-height:1.2}
+.stat span{font-size:11.5px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.callout{background:var(--coralbg);border-left:4px solid var(--coral);border-radius:0 12px 12px 0;padding:14px 18px;margin:14px 0;font-size:13.5px}
+.callout.blue{background:#eef4ff;border-left-color:var(--blue)}
+.callout.green{background:var(--greenbg);border-left-color:var(--green)}
+.callout.amber{background:var(--amberbg);border-left-color:var(--amber)}
+.callout b{color:var(--navy)}
+.route{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.route .r{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+.route .r b{display:block;color:var(--navy);margin-bottom:4px}
+.route .r p{font-size:12.5px;color:var(--muted);min-height:44px}
+.route .r .btn{margin-top:10px;padding:7px 12px;font-size:12px}
+.term-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.term{padding:14px 16px}
+.term .t{font-size:16px;font-weight:700;color:var(--navy)}
+.term .e{font-size:12px;color:var(--sky);margin-bottom:6px}
+.term .s{font-size:13.5px}
+.term .w{font-size:12.5px;color:var(--amber);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.searchbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.searchbar input{flex:1;min-width:220px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;font-size:14px;background:#fff}
+.searchbar input:focus{outline:2px solid #bcd7ff;border-color:var(--sky)}
+.chip{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:13px;transition:.12s}
+.chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.chip:hover{border-color:var(--sky);color:var(--blue)}
+.chip.active:hover{color:#fff}
+.acc-head{font-size:15.5px;font-weight:700;color:var(--navy);cursor:pointer;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-radius:10px;transition:background .15s}
+.acc-head:hover{background:#f4f8fd}
+.acc-body{display:none;padding:4px 16px 16px;border-top:1px solid var(--line);margin-top:10px}
+.acc.open .acc-body{display:block}
+.item{margin-bottom:12px;font-size:13.4px}
+.item b{color:var(--navy)}
+.tip{margin-top:12px;background:var(--amberbg);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--amber)}
+.qa-q{font-size:15px;font-weight:700;cursor:pointer;padding:14px 16px;line-height:1.6;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.qa-q .chev{color:var(--muted);font-weight:400;flex-shrink:0}
+.qa-a{display:none;padding:2px 16px 16px;border-top:1px dashed var(--line)}
+.qa.open .qa-a{display:block}
+.lbl{display:inline-block;font-size:12px;font-weight:700;color:#fff;border-radius:6px;padding:2px 8px;margin-right:6px;white-space:nowrap}
+.lbl-i{background:#7c3aed}.lbl-f{background:var(--blue)}.lbl-p{background:var(--green)}
+.qa-a ul{margin:8px 0 0 18px}
+.qa-a li{font-size:13.5px;margin-bottom:5px}
+.quote{background:#eef4ff;border-left:3px solid var(--blue);padding:8px 12px;border-radius:0 8px 8px 0;font-size:13px;margin-top:10px;color:var(--navy);font-weight:600}
+.btn{display:inline-block;border:none;border-radius:10px;padding:10px 20px;font-size:14px;cursor:pointer;font-weight:600;transition:.15s;font-family:inherit}
+.btn-p{background:var(--blue);color:#fff}
+.btn-p:hover{background:var(--navy)}
+.btn-o{border:1px solid var(--line);background:#fff;color:var(--ink)}
+.btn-o:hover{border-color:var(--sky);color:var(--blue)}
+.btn-g{background:var(--green);color:#fff}
+.btn-g:hover{filter:brightness(1.1)}
+.btn-a{background:var(--amberbg);color:var(--amber)}
+.btn-r{background:var(--redbg);color:var(--red)}
+.btn-sm{padding:7px 12px;font-size:12.5px}
+.mock-q{font-size:16.5px;font-weight:700;color:var(--navy);line-height:1.8}
+.mock-timer{font-size:26px;font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums;margin:10px 0}
+.mock-timer.timeup{font-size:15px;color:var(--red);line-height:1.6}
+.mock-status{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0;font-size:13px}
+.mock-status span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.quiz-opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:9px;font-size:14px;cursor:pointer;transition:.12s;font-family:inherit}
+.quiz-opt:hover{border-color:var(--sky)}
+.quiz-opt.correct{background:var(--greenbg);border-color:var(--green);color:var(--green);font-weight:600}
+.quiz-opt.wrong{background:var(--redbg);border-color:var(--red);color:var(--red);font-weight:600}
+.quiz-exp{background:var(--amberbg);border-radius:10px;padding:12px 16px;font-size:13.5px;color:var(--amber);margin-top:10px}
+.score-big{font-size:52px;font-weight:800;color:var(--navy);text-align:center}
+.progress{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin:10px 0}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--sky),var(--blue));border-radius:999px;transition:.3s}
+.plan-item{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:13.5px}
+.plan-item:hover{background:#f7fafd}
+.plan-item input{margin-top:4px;width:16px;height:16px;cursor:pointer;flex-shrink:0;accent-color:var(--blue)}
+.plan-item.done span{text-decoration:line-through;color:var(--muted)}
+.weekbar{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.weekbar h3{font-size:15.5px;color:var(--navy)}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;margin:8px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.tbl th{background:#eef3fb;color:var(--navy);white-space:nowrap;font-weight:700}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr td:last-child,.tbl tr th:last-child{border-right:none}
+.tbl tr:nth-child(even) td{background:#fafcff}
+.tbl tr:hover td{background:#f3f7fe}
+.tbl td code{background:#eef4ff;border-radius:5px;padding:1px 6px;font-size:12.5px;color:var(--navy);font-family:Consolas,monospace}
+.stepflow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.stepflow .sf{flex:1;min-width:130px;background:#eef4ff;border-radius:10px;padding:10px 12px;font-size:12.8px;color:var(--navy);font-weight:700;text-align:center;position:relative;box-shadow:inset 0 0 0 1px #dbe7f8}
+.stepflow .sf small{display:block;font-weight:400;color:var(--muted);margin-top:2px;font-size:11.8px}
+.stepflow .sf::after{content:'→';position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:var(--sky);z-index:1;font-size:13px}
+.stepflow .sf:last-child::after{content:none}
+.hook-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.hook-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+.hook-card .k{font-size:11.5px;color:var(--coral);font-weight:700;margin-bottom:4px}
+.hook-card .q{font-size:14px;font-weight:700;color:var(--navy);line-height:1.6}
+.hook-card .n{font-size:12px;color:var(--muted);margin-top:6px}
+.beat-flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:12px 0}
+.beat{border-radius:10px;padding:12px 10px;background:#eef4ff;border-top:4px solid var(--sky)}
+.beat:nth-child(1){border-top-color:var(--coral);background:var(--coralbg)}
+.beat:nth-child(2){border-top-color:#d97a5a}
+.beat:nth-child(3){border-top-color:var(--navy)}
+.beat:nth-child(4){border-top-color:var(--teal,#2f7d7a);background:#eef7f6}
+.beat:nth-child(5){border-top-color:var(--amber);background:var(--amberbg)}
+.beat:nth-child(6){border-top-color:var(--red);background:var(--redbg)}
+.beat b{display:block;font-size:13px;color:var(--navy)}
+.beat .t{font-size:11.5px;color:var(--muted);font-weight:600}
+.beat p{font-size:12px;color:var(--ink);margin-top:4px;line-height:1.5}
+.timer-wrap{background:linear-gradient(180deg,#0e2a5c,#0a1d40);border-radius:16px;padding:22px;color:#d7e4ff;box-shadow:0 10px 24px rgba(10,29,64,.25)}
+.timer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.timer-label{font-size:12px;color:#9fc3ff;letter-spacing:1px}
+.timer-big{font-size:54px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1;margin:6px 0;color:#fff}
+.timer-big.warn{color:#ffd28f}
+.timer-big.done{color:#ff9a9a}
+.timer-actions{display:flex;gap:8px;flex-wrap:wrap}
+.timer-actions .btn{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff}
+.timer-actions .btn:hover{background:rgba(255,255,255,.16);color:#fff}
+.timer-actions .btn-p{background:#2f7dff;border-color:#2f7dff}
+.timer-actions .btn-p:hover{background:#1d4ed8}
+.timer-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:#9fc3ff;margin-top:10px}
+.phase-list{margin-top:16px;display:grid;gap:6px}
+.phase{display:grid;grid-template-columns:74px 1fr auto;gap:10px;align-items:center;background:rgba(255,255,255,.06);border-radius:9px;padding:8px 10px;font-size:12.3px;color:#cfe0ff}
+.phase.active{background:rgba(47,125,255,.28);box-shadow:inset 3px 0 0 #7ef0b2}
+.phase.done{opacity:.55}
+.phase .pt{font-variant-numeric:tabular-nums;color:#9fc3ff}
+.phase .pd{color:#e8f2ff}
+.phase .ph{color:#ffd28f;font-size:11.5px;white-space:nowrap}
+.char-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.char-card{padding:16px}
+.char-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.char-name{font-size:17px;font-weight:800;color:var(--navy)}
+.char-role{font-size:12px;color:var(--muted)}
+.char-traits{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.char-traits span{font-size:11.5px;background:#eef4ff;color:var(--navy);border-radius:999px;padding:2px 9px}
+.prompt-box{background:#0e2a5c;color:#d7e4ff;border-radius:10px;padding:12px 14px;font-size:12.3px;line-height:1.8;white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto;font-family:Consolas,"Microsoft YaHei",monospace}
+.copy-btn{margin-top:8px;border:1px solid var(--line);background:#fff;color:var(--blue);border-radius:8px;padding:5px 12px;font-size:12px;cursor:pointer;font-weight:600}
+.copy-btn:hover{border-color:var(--sky)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-grid label{font-size:12.5px;font-weight:700;color:var(--navy);display:block;margin-bottom:4px}
+.form-grid input,.form-grid select,.form-grid textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:13.5px;font-family:inherit;background:#fff;color:var(--ink)}
+.form-grid textarea{min-height:90px;resize:vertical}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{outline:2px solid #bcd7ff;border-color:var(--sky)}
+.prompt-out{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:12px 14px;font-size:12.5px;line-height:1.75;color:#334155;white-space:pre-wrap;word-break:break-word;min-height:90px;margin-top:10px}
+.score-table td:first-child{font-weight:700;color:var(--navy)}
+.kbd{display:inline-block;background:#eef4ff;border:1px solid #dbe7f8;border-bottom-width:2px;border-radius:5px;padding:0 6px;font-family:Consolas,monospace;font-size:12px;color:var(--navy)}
+.check-list{display:grid;gap:2px}
+.check-line{display:flex;gap:9px;align-items:flex-start;padding:7px 8px;border-radius:8px;font-size:13.2px;cursor:pointer}
+.check-line:hover{background:#f7fafd}
+.check-line input{width:16px;height:16px;margin-top:4px;flex-shrink:0;accent-color:var(--blue);cursor:pointer}
+.check-line.done span{text-decoration:line-through;color:var(--muted)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.role-card .jt{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.role-card .jr{display:grid;grid-template-columns:72px 1fr;gap:8px;font-size:12.8px;margin-bottom:6px}
+.role-card .jr b{color:var(--muted);font-weight:600}
+.mini-list{list-style:none;margin:0;padding:0}
+.mini-list li{font-size:13px;padding:5px 0;border-bottom:1px dotted var(--line);display:flex;gap:8px}
+.mini-list li:last-child{border-bottom:none}
+.mini-list li b{color:var(--navy);flex-shrink:0}
+.sheet h3{font-size:15px;color:var(--navy);margin:22px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--sky)}
+.sheet h2{font-size:19px;color:var(--navy);margin-bottom:2px}
+.sheet .sh-meta{font-size:11.5px;color:var(--muted);margin-bottom:6px}
+.sheet code,#printArea code{font-family:Consolas,"Courier New",monospace;font-size:.95em}
+.sheet h3:first-child{margin-top:6px}
+.sh-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px}
+.sh-term{font-size:12px;line-height:1.55;padding:2px 0;border-bottom:1px dotted var(--line)}
+.sh-term b{color:var(--navy)}
+.sh-term span{color:var(--muted);margin-left:6px}
+.sh-table{width:100%;border-collapse:collapse;font-size:11.5px}
+.sh-table th,.sh-table td{border:1px solid #d8e2ef;padding:4px 6px;text-align:left;vertical-align:top}
+.sh-table th{background:#eef3fb;color:var(--navy)}
+.sh-quote{font-size:12px;line-height:1.7;margin:3px 0;color:var(--ink)}
+.sh-quote b{color:var(--blue)}
+#printArea{display:none}
+.footer{margin-top:30px;text-align:center;font-size:12px;color:var(--muted)}
+button:focus-visible,.chip:focus-visible,.acc-head:focus-visible,.qa-q:focus-visible,.plan-item:focus-within,.check-line:focus-within{outline:2px solid var(--sky);outline-offset:2px;border-radius:8px}
+.quiz-opt:disabled{cursor:default}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:repeat(2,1fr)}
+  .grid3,.route{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .beat-flow{grid-template-columns:repeat(3,1fr)}
+  .form-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  header h1{font-size:20px}
+  header{padding:22px 18px;border-radius:16px}
+  header p{font-size:12px}
+  .term-grid,.char-grid,.hook-grid{grid-template-columns:1fr}
+  .card{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:16px 14px}
+  .tbl{font-size:12px}
+  .hero-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .stat b{font-size:20px}
+  nav{padding:8px 2px 10px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none}
+  nav::-webkit-scrollbar{display:none}
+  nav button{flex:0 0 auto;padding:7px 12px;font-size:12.5px}
+  .beat-flow{grid-template-columns:1fr 1fr}
+  .timer-big{font-size:40px}
+  .phase{grid-template-columns:64px 1fr;gap:6px}
+  .phase .ph{grid-column:1/-1;white-space:normal}
+  .searchbar input{font-size:16px}
+  .form-grid input,.form-grid select,.form-grid textarea{font-size:16px}
+}
+@media print{
+  @page{size:A4;margin:12mm}
+  body.printing{background:#fff}
+  body.printing > *:not(#printArea){display:none!important}
+  body.printing #printArea{display:block!important;font-size:10.5pt;color:#000}
+  #printArea h2{font-size:16pt;margin:0 0 4pt}
+  #printArea h3{font-size:11.5pt;margin:10pt 0 4pt;border-bottom:1pt solid #999;color:#000}
+  #printArea .sh-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 10mm}
+  #printArea .sh-term{font-size:8.6pt;line-height:1.45;border-bottom:.3pt dotted #bbb}
+  #printArea .sh-table{width:100%;border-collapse:collapse;font-size:8.4pt}
+  #printArea .sh-table th,#printArea .sh-table td{border:.4pt solid #999;padding:2pt 3pt}
+  #printArea .sh-quote{font-size:9pt;line-height:1.5;margin:2pt 0}
+  #printArea .sh-meta{font-size:8pt;color:#666}
+  #printArea .sh-block{break-inside:avoid;page-break-inside:avoid}
+  #printArea tr{break-inside:avoid;page-break-inside:avoid}
+  #printArea thead{display:table-header-group}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <h1>🎬 AI视频短剧生成师 · 面试学习助手</h1>
+  <p>目标岗位：AI视频短剧生成师 / 小说推文 / 短剧切片 · 从 JD 拆解到 2 小时试剪 · 全程离线可用</p>
+</header>
+<nav id="mainNav" aria-label="学习模块">
+  <button data-tab="start" class="active">🚀 开始</button>
+  <button data-tab="terms">📖 术语词典</button>
+  <button data-tab="role">🧠 岗位拆解</button>
+  <button data-tab="story">🔥 爆款叙事</button>
+  <button data-tab="edit">✂️ 剪映全流程</button>
+  <button data-tab="ai">🤖 AI工作流</button>
+  <button data-tab="project">🎬 60秒实战</button>
+  <button data-tab="qa">💬 面试问答</button>
+  <button data-tab="mock">🎤 模拟面试</button>
+  <button data-tab="quiz">🎯 测验练习</button>
+  <button data-tab="test">⏱️ 2小时试剪</button>
+  <button data-tab="portfolio">🧳 作品集</button>
+  <button data-tab="plan">📅 学习计划</button>
+  <button data-tab="sheet">📄 速查表</button>
+</nav>
+<main>
+
+
+<!-- ===== start.html ===== -->
+<!-- ============ 开始 ============ -->
+<section id="tab-start" class="tab active">
+  <div class="card">
+    <p class="muted">这不是“软件说明书”，而是一套可以照着练、带着去面试的学习系统。先看结论，再按模块补；所有进度都保存在本机浏览器。</p>
+    <div class="hero-grid">
+      <div class="stat"><b id="statTerms">40+</b><span>术语卡片</span></div>
+      <div class="stat"><b id="statQA">21</b><span>面试主问题</span></div>
+      <div class="stat"><b id="statQuiz">30</b><span>测验题</span></div>
+      <div class="stat"><b>120</b><span>分钟试剪计时</span></div>
+    </div>
+    <div class="callout">
+      <b>岗位本质：</b>用 AI + 剪映，把一本小说/一部剧的卖点，压缩成前 3 秒抓人、60 秒讲清、结尾留钩子的竖屏视频。
+      一个人就是一条小型生产线：选题、脚本、配音、画面、剪辑、包装、导出，都要你自己来。
+    </div>
+  </div>
+
+  <h2 class="sec">面试官只看三件事 <span class="sub">所有的准备，都围绕这三件事</span></h2>
+  <div class="grid3">
+    <div class="card">
+      <div class="weekbar"><h3>① 前 3 秒</h3><span class="badge coral">留人</span></div>
+      <p style="font-size:13.5px">首帧有没有冲突/信息？字幕有没有说结果？声音有没有情绪？静音也能看懂，才算过。</p>
+    </div>
+    <div class="card">
+      <div class="weekbar"><h3>② 故事逻辑</h3><span class="badge blue">看懂</span></div>
+      <p style="font-size:13.5px">谁想要什么、被谁阻止、反转是什么？一句话说不清，观众就会划走。</p>
+    </div>
+    <div class="card">
+      <div class="weekbar"><h3>③ 剪辑手艺</h3><span class="badge green">质感</span></div>
+      <p style="font-size:13.5px">卡点、镜头语言、反应镜头、声音、字幕、调色——细节经得起暂停，才叫专业。</p>
+    </div>
+  </div>
+
+  <h2 class="sec">十条核心结论 <span class="sub">背下来，面试时能脱口而出</span></h2>
+  <div class="card">
+    <ul class="mini-list">
+      <li><b>01</b><span>这个岗位买的不是“会用 AI”，是“能独立做出一条能转化的片子”。</span></li>
+      <li><b>02</b><span>一个人一部剧：没有助手，选题、脚本、配音、画面、剪辑、包装、导出都要自己来。</span></li>
+      <li><b>03</b><span>面试官只看：前 3 秒能不能留人、故事能不能看懂、画面声音有没有拖后腿。</span></li>
+      <li><b>04</b><span>2 小时测试：完成度大于炫技。45—75 秒的完整成片，胜过 3 分钟的半成品。</span></li>
+      <li><b>05</b><span>卡点不是每个鼓点都切，是让动作、台词、情绪落在拍点上；乱切比不卡点更致命。</span></li>
+      <li><b>06</b><span>“卡点前”要求很高：动作起势、镜头推近、音乐铺垫、字幕关键词，都要在拍点前准备好。</span></li>
+      <li><b>07</b><span>镜头语言不是术语，是景别、角度、反应镜头、视线匹配，把情绪往前推。</span></li>
+      <li><b>08</b><span>声音决定质感：对白清晰 &gt; 音乐好听；音乐再燃，台词听不清就是事故。</span></li>
+      <li><b>09</b><span>字幕是第二条命：错别字、挡脸、超出安全区，会让“专业感”瞬间归零。</span></li>
+      <li><b>10</b><span>AI 人物图看三件事：设定清楚、四个人像同一部剧、审美高级；不是单张好看就行。</span></li>
+    </ul>
+  </div>
+
+  <h2 class="sec">三条路线：你离面试还有多久？</h2>
+  <div class="route">
+    <div class="r">
+      <b>只剩 1 天</b>
+      <p>读「岗位拆解 / 2小时试剪 / 面试问答」，做一次 120 分钟模拟，把自我介绍背到自然。</p>
+      <button class="btn btn-p" data-go="test">去做试剪计时</button>
+    </div>
+    <div class="r">
+      <b>还有 3 天</b>
+      <p>加读「爆款叙事 / 剪映全流程」，用原片剪 1 条 60 秒，准备 4 张豆包人物图。</p>
+      <button class="btn btn-p" data-go="edit">去学剪映</button>
+    </div>
+    <div class="r">
+      <b>还有 7 天</b>
+      <p>按「学习计划」执行，完成 3 条作品 + 1 页复盘；模拟面试至少 2 次。</p>
+      <button class="btn btn-p" data-go="plan">打开 7 天计划</button>
+    </div>
+  </div>
+
+  <h2 class="sec">面试前 24 小时检查 <span class="sub">勾选后自动保存</span></h2>
+  <div class="card">
+    <div id="preChecks" class="check-list"></div>
+  </div>
+
+  <div class="callout blue">
+    <b>使用建议：</b>先通读「岗位拆解」和「面试问答」，再去「2小时试剪」做一次全真计时。
+    每道题先自己开口说一遍，再看参考答案；不要默读，面试考的是“说出来”。
+  </div>
+</section>
+
+
+<!-- ===== terms.html ===== -->
+<!-- ============ 术语词典 ============ -->
+<section id="tab-terms" class="tab">
+  <div class="card">
+    <p class="muted">面试里最容易被追问的，不是“你做过什么”，而是“你说的这个词到底什么意思”。先用一句话说清，再练“面试里怎么用”。建议先过一遍，再用「卡片抽查」检验。</p>
+    <div class="searchbar" style="margin-top:12px">
+      <input id="termSearch" type="text" placeholder="🔍 搜索术语（中文 / 英文 / 解释）…">
+      <button class="chip active" data-cat="全部">全部</button>
+      <button class="chip" data-cat="数据">数据</button>
+      <button class="chip" data-cat="叙事">叙事</button>
+      <button class="chip" data-cat="剪辑">剪辑</button>
+      <button class="chip" data-cat="声音">声音</button>
+      <button class="chip" data-cat="AI">AI</button>
+      <button class="chip" data-cat="交付">交付</button>
+    </div>
+    <div class="drill-bar" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)">
+      <button class="btn btn-p" id="drillStart" style="padding:8px 16px;font-size:13px">🎴 卡片抽查</button>
+      <button class="chip" data-cat="生词本" id="weakChip">📕 生词本（0）</button>
+      <label class="muted" style="display:flex;align-items:center;gap:6px;font-size:12.5px;cursor:pointer">
+        <input type="checkbox" id="drillWeakOnly" style="width:15px;height:15px;cursor:pointer;accent-color:var(--blue)"> 只抽生词本
+      </label>
+      <span class="muted" id="drillStat" style="font-size:12.5px"></span>
+    </div>
+  </div>
+
+  <div class="card drill" id="drillCard" style="display:none">
+    <div class="drill-head" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+      <b id="drillTitle" style="color:var(--navy)">🎴 卡片抽查</b>
+      <span class="muted" id="drillProgress" style="font-size:12.5px"></span>
+      <button class="btn btn-o" id="drillClose" style="margin-left:auto;padding:6px 12px;font-size:12.5px">关闭</button>
+    </div>
+    <div id="drillBody"></div>
+  </div>
+
+  <div id="termGrid" class="term-grid"></div>
+</section>
+
+
+<!-- ===== role.html ===== -->
+<!-- ============ 岗位拆解 ============ -->
+<section id="tab-role" class="tab">
+  <div class="card">
+    <p class="muted">招聘启事写的是职责，面试官心里想的是风险。这一页把两张图里的每一句话拆开：表面在说什么、背后在考什么、你要拿什么证据回应。</p>
+  </div>
+
+  <h2 class="sec">三条职责：它要的是“全链路”，不是“只会剪”</h2>
+  <div class="grid3">
+    <div class="card role-card">
+      <div class="jt">① AI 生成小说推文视频</div>
+      <div class="jr"><b>表面</b><span>文案、配音、画面、剪辑都要会</span></div>
+      <div class="jr"><b>背后</b><span>一个人跑完整条生产线，不能等别人给素材/分镜/字幕</span></div>
+      <div class="jr"><b>证明</b><span>一条完整 60 秒成片 + 你的工作流</span></div>
+      <div class="tip">面试官最怕：你只会其中一环，还说自己“都会”。</div>
+    </div>
+    <div class="card role-card">
+      <div class="jt">② 筛选热门小说，提炼片段</div>
+      <div class="jr"><b>表面</b><span>会看小说、会找精彩片段</span></div>
+      <div class="jr"><b>背后</b><span>选题判断 + 改编能力 + 平台流量逻辑</span></div>
+      <div class="jr"><b>证明</b><span>3 个不同版本的前 3 秒 + 选择理由</span></div>
+      <div class="tip">不是“文笔好”，是“冲突强、代入快、理解成本低”。</div>
+    </div>
+    <div class="card role-card">
+      <div class="jt">③ 优化 AI 内容，提升数据</div>
+      <div class="jr"><b>表面</b><span>提升完播、点击、转化</span></div>
+      <div class="jr"><b>背后</b><span>你要对结果负责，不是“我觉得好看”</span></div>
+      <div class="jr"><b>证明</b><span>能按留存曲线定位问题，一次只改一个变量</span></div>
+      <div class="tip">面试时主动聊数据，会显得你已经在用“负责人视角”思考。</div>
+    </div>
+  </div>
+
+  <h2 class="sec">三条任职要求：手艺、网感、叙事</h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:28%">原文</th><th style="width:22%">它在考什么</th><th>面试怎么证明</th></tr>
+      <tr><td>熟悉主流剪辑软件，网感极佳，深刻理解短视频爆款逻辑与叙事节奏</td><td>软件熟练 + 审美 + 爆款拆解</td><td>现场操作不卡壳；能拆 3 条对标的钩子/节拍/反转，而不是只说“好看”</td></tr>
+      <tr><td>熟悉短剧/爽文叙事节奏，懂得前 3 秒抓住观众，让观众看完</td><td>钩子设计 + 留存能力</td><td>拿出 3 个不同开头；能解释每个开头的心理机制；静音也能看懂</td></tr>
+      <tr><td>有剪辑、编导、编剧经验，或动画/影视编导/数字媒体艺术优先</td><td>故事能力 + 镜头语言 + 美术基础</td><td>作品里有叙事；能说清景别、轴线、反应镜头的选择</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">第二张图的潜台词 <span class="sub">比 JD 更重要的信息</span></h2>
+  <div class="card">
+    <div class="item"><b>▸ “一个人一部剧”：</b>没有助理。你要能独立完成，遇到问题自己解决，不能等别人给你分镜、字幕、音乐。</div>
+    <div class="item"><b>▸ “剪辑要求相对较高”：</b>不是把片段接起来；节奏、情绪、逻辑、画面都要经得起看。</div>
+    <div class="item"><b>▸ “卡点前要求很高”：</b>注意“卡点前”——动作起势、镜头预备、音乐铺垫都要提前设计，不是到了鼓点才切。</div>
+    <div class="item"><b>▸ “镜头语言、逻辑、画面都要好”：</b>景别、角度、轴线、视线、因果关系；不能为了炫技把故事剪乱。</div>
+    <div class="item"><b>▸ “2 小时，10 分钟培训”：</b>考学习速度、临场抗压、时间管理。</div>
+    <div class="item"><b>▸ 测试 1：</b>豆包生成 4 个人物形象——考设定、风格统一、审美，不是随便生成 4 张网红脸。</div>
+    <div class="item"><b>▸ 测试 2：</b>原片用剪映剪成片——原片可能不完美，考你怎么“救”素材，而不是抱怨素材。</div>
+  </div>
+
+  <h2 class="sec">100 分自评表 <span class="sub">80 分以上再投，90 分以上才有竞争力</span></h2>
+  <div class="card">
+    <table class="tbl score-table">
+      <tr><th>维度</th><th>分值</th><th>优秀（可直接入职）</th><th>危险（大概率淘汰）</th></tr>
+      <tr><td>前 3 秒钩子</td><td>15</td><td>冲突/反差/结果前置，画面+台词+字幕三重钩子</td><td>从背景/logo/空镜开始，3 秒没信息</td></tr>
+      <tr><td>故事逻辑</td><td>20</td><td>一句话能说清；因果完整；结尾有钩子</td><td>看不懂谁在干什么；为炫技牺牲逻辑</td></tr>
+      <tr><td>节奏与卡点</td><td>15</td><td>动作/台词/情绪落在拍点；张弛有度</td><td>每个鼓点都切；台词被切碎；节奏平</td></tr>
+      <tr><td>镜头语言</td><td>15</td><td>景别递进、反应镜头、轴线正确、构图干净</td><td>越轴、跳切、机位乱；没有反应镜头</td></tr>
+      <tr><td>画面质量</td><td>10</td><td>曝光/色彩统一；人物好看；字幕不挡脸</td><td>过曝/死黑/滤镜脏/画面糊</td></tr>
+      <tr><td>声音设计</td><td>10</td><td>对白清晰；音乐有情绪；音效克制准确</td><td>爆音/杂音/无声/音画不同步</td></tr>
+      <tr><td>AI 人物图</td><td>10</td><td>4 人风格统一、设定清楚、审美高级</td><td>塑料脸/多手指/风格混乱/无设定</td></tr>
+      <tr><td>速度与独立</td><td>10</td><td>2 小时内完成并主动检查</td><td>做不完/等指令/不会导出</td></tr>
+      <tr><td>表达与复盘</td><td>5</td><td>能说清选择、数据和改进</td><td>只会说“感觉这样好看”</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">面试官最怕的三种人 / 最想看到的三种人</h2>
+  <div class="two-col">
+    <div class="card">
+      <div class="weekbar"><h3>最怕</h3><span class="badge red">风险</span></div>
+      <ul class="mini-list">
+        <li><b>只会套模板</b><span>换个素材就不会剪</span></li>
+        <li><b>作品很花</b><span>但看不懂故事</span></li>
+        <li><b>一问数据就沉默</b><span>只说“我觉得好看”</span></li>
+        <li><b>2 小时做不完</b><span>或者做到一半崩溃</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="weekbar"><h3>最想看到</h3><span class="badge green">加分</span></div>
+      <ul class="mini-list">
+        <li><b>稳定工作流</b><span>换题材也能快速上手</span></li>
+        <li><b>一句话说清</b><span>并用镜头服务这句话</span></li>
+        <li><b>按曲线诊断</b><span>知道先改哪一秒</span></li>
+        <li><b>有时间盒</b><span>有优先级、有应急预案</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout amber"><b>今天就能做：</b>写一句话故事；做 3 个前 3 秒；拆 1 条对标。三件事加起来不超过 90 分钟，但足够让你在面试里有话可说。</div>
+</section>
+
+
+<!-- ===== story.html ===== -->
+<!-- ============ 爆款叙事 ============ -->
+<section id="tab-story" class="tab">
+  <div class="card">
+    <p class="muted">网感不是玄学，是一套可以拆解、可以练习的判断。面试官说“网感极佳”时，他在找一个能解释“为什么这条会火、那条会死”的人。</p>
+  </div>
+
+  <h2 class="sec">黄金 3 秒：不是“快”，是“信息密度” <span class="sub">给观众一个必须留下的理由</span></h2>
+  <div class="grid3">
+    <div class="card"><div class="weekbar"><h3>冲突前置</h3><span class="badge coral">最稳</span></div><p class="small">把最激烈的对抗放在第一帧。</p><div class="quote">“签了它，净身出户，你一分钱都拿不到。”</div></div>
+    <div class="card"><div class="weekbar"><h3>结果先行</h3><span class="badge blue">好奇</span></div><p class="small">先给结果，再解释过程。</p><div class="quote">“被赶出家门三天后，全家跪着求我回去。”</div></div>
+    <div class="card"><div class="weekbar"><h3>身份反差</h3><span class="badge green">掉马</span></div><p class="small">最低身份 + 最高身份。</p><div class="quote">“人人欺负的保洁阿姨，其实是集团董事长。”</div></div>
+    <div class="card"><div class="weekbar"><h3>悬念提问</h3><span class="badge amber">互动</span></div><p class="small">用问题逼观众想知道答案。</p><div class="quote">“如果给你一千万，让你离开你老公，你走不走？”</div></div>
+    <div class="card"><div class="weekbar"><h3>视觉暴击</h3><span class="badge red">冲击</span></div><p class="small">用强动作/强画面抓眼。</p><div class="quote">婚礼大屏突然播放新娘的秘密。</div></div>
+    <div class="card"><div class="weekbar"><h3>台词暴击</h3><span class="badge coral">情绪</span></div><p class="small">一句狠话，信息量极大。</p><div class="quote">“你不过是他的替身。”</div></div>
+  </div>
+
+  <h2 class="sec">一个钩子的三层结构 <span class="sub">画面 + 文字 + 声音，缺一不可</span></h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:18%">层</th><th style="width:32%">作用</th><th>例子</th></tr>
+      <tr><td><b>画面层</b></td><td>第一帧就要有冲突/动作/脸</td><td>离婚协议被甩到桌上；女人拖着行李箱站在暴雨里</td></tr>
+      <tr><td><b>文字层</b></td><td>大字幕把信息一次说清</td><td>“离婚当天，前夫才发现我是他的新老板”</td></tr>
+      <tr><td><b>声音层</b></td><td>台词/音效/音乐把情绪顶上去</td><td>纸张拍桌声 + 男人冷笑 + 低频 heartbeat</td></tr>
+    </table>
+    <p class="muted">检查方法：静音看一遍，前 3 秒能不能看懂；闭眼听一遍，前 3 秒有没有情绪。两条都过，才算合格。</p>
+  </div>
+
+  <h2 class="sec">60 秒六拍结构 <span class="sub">不是“讲完”，是“完成一次情绪过山车”</span></h2>
+  <div class="beat-flow">
+    <div class="beat"><span class="t">0—3s</span><b>钩子</b><p>冲突/结果/身份反差</p></div>
+    <div class="beat"><span class="t">3—10s</span><b>处境</b><p>交代因果，但不铺陈</p></div>
+    <div class="beat"><span class="t">10—25s</span><b>打压</b><p>把主角逼到墙角</p></div>
+    <div class="beat"><span class="t">25—40s</span><b>反转</b><p>身份/证据/靠山</p></div>
+    <div class="beat"><span class="t">40—52s</span><b>打脸</b><p>情绪释放，反派失势</p></div>
+    <div class="beat"><span class="t">52—60s</span><b>悬念</b><p>新危机/新问题/下集</p></div>
+  </div>
+  <div class="callout blue"><b>节奏原则：</b>每 3—5 秒一个新信息；每 10—15 秒一个小反转；结尾不要总结，要抛问题。</div>
+
+  <h2 class="sec">完播率诊断 <span class="sub">不要笼统说“再剪短点”，要定位到秒</span></h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th>流失位置</th><th>最可能的原因</th><th>优先修改</th></tr>
+      <tr><td>0—3 秒</td><td>首帧没信息；开头是 logo/黑屏/空镜；台词太温</td><td>换钩子；把冲突/结果/反差提到第一帧</td></tr>
+      <tr><td>3—10 秒</td><td>背景交代太多；人物关系不清；节奏拖</td><td>删解释；用一句字幕交代关系；提前抛问题</td></tr>
+      <tr><td>10—30 秒</td><td>中段没有新信息；重复打压；镜头太长</td><td>每 3—5 秒加新信息；删重复；加反应镜头</td></tr>
+      <tr><td>30—50 秒</td><td>反转来得太晚/太弱；情绪没有释放</td><td>提前反转；加打脸动作/台词；音乐顶上去</td></tr>
+      <tr><td>50 秒—结尾</td><td>结尾泄气；没有钩子；开始总结</td><td>删总结；用新危机/新问题收尾；留一句狠话</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">点击率三件套 <span class="sub">封面负责被看见，标题负责被理解，首帧负责不后悔</span></h2>
+  <div class="grid3">
+    <div class="card"><div class="weekbar"><h3>封面</h3></div><p class="small">人脸 + 冲突动作 + 6—10 字大字；高对比；手机尺寸可读。</p></div>
+    <div class="card"><div class="weekbar"><h3>标题</h3></div><p class="small">结果/反差/数字/疑问；具体，不空泛；不承诺内容里没有的东西。</p></div>
+    <div class="card"><div class="weekbar"><h3>首帧</h3></div><p class="small">和封面同一个人/同一冲突；不黑屏；0.5 秒内确认“我没点错”。</p></div>
+  </div>
+
+  <h2 class="sec">钩子库 <span class="sub">点“换一批”随机抽 9 条；面试时至少能背 5 条</span></h2>
+  <div class="card">
+    <div class="weekbar"><h3>可直接改写的钩子</h3><button class="btn btn-o btn-sm" id="hookShuffle">🔀 换一批</button></div>
+    <div id="hookGrid" class="hook-grid"></div>
+  </div>
+
+  <div class="callout"><b>别做自嗨型内容：</b>“这个转场很酷”“这个滤镜很高级”“这段音乐我很喜欢”——这些都不是理由。面试官要听的是：这段处理让观众更投入了吗？让信息更清楚了吗？让完播/点击更高了吗？</div>
+</section>
+
+
+<!-- ===== edit.html ===== -->
+<!-- ============ 剪映全流程 ============ -->
+<section id="tab-edit" class="tab">
+  <div class="card">
+    <p class="muted">以剪映专业版（Windows）为例，按真实工作顺序拆成 17 个环节。Mac 把 Ctrl 换成 ⌘；不同版本的按钮位置/名称可能略有差异，以图标和功能为准。</p>
+    <div class="stepflow">
+      <div class="sf">整理<small>素材/项目</small></div>
+      <div class="sf">粗剪<small>故事立起来</small></div>
+      <div class="sf">精剪<small>节奏/镜头</small></div>
+      <div class="sf">声音<small>对白/音乐/音效</small></div>
+      <div class="sf">字幕<small>第二条叙事线</small></div>
+      <div class="sf">调色<small>统一/情绪</small></div>
+      <div class="sf">导出<small>QC/交付</small></div>
+    </div>
+  </div>
+
+  <h2 class="sec">17 个环节 <span class="sub">点开每一步，照着做</span></h2>
+  <div id="editSteps"></div>
+
+  <h2 class="sec">卡点计算器 <span class="sub">先算清楚，再下手</span></h2>
+  <div class="card">
+    <div class="form-grid">
+      <div><label>BPM（每分钟拍数）</label><input type="number" id="bpmInput" value="90" min="40" max="220" step="1"></div>
+      <div><label>项目帧率</label><select id="fpsInput"><option value="30" selected>30 fps</option><option value="60">60 fps</option><option value="25">25 fps</option></select></div>
+    </div>
+    <div class="calc-out" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0">
+      <div class="box" style="background:#eef4ff;border-radius:10px;padding:12px;text-align:center"><div class="v" id="beatSec" style="font-size:20px;font-weight:800;color:var(--navy)">—</div><div class="k" style="font-size:12px;color:var(--muted)">一拍秒数</div></div>
+      <div class="box" style="background:#eef4ff;border-radius:10px;padding:12px;text-align:center"><div class="v" id="beatFrames" style="font-size:20px;font-weight:800;color:var(--navy)">—</div><div class="k" style="font-size:12px;color:var(--muted)">一拍帧数</div></div>
+      <div class="box" style="background:#eef4ff;border-radius:10px;padding:12px;text-align:center"><div class="v" id="beat2" style="font-size:20px;font-weight:800;color:var(--navy)">—</div><div class="k" style="font-size:12px;color:var(--muted)">2 拍时长</div></div>
+      <div class="box" style="background:#eef4ff;border-radius:10px;padding:12px;text-align:center"><div class="v" id="beat4" style="font-size:20px;font-weight:800;color:var(--navy)">—</div><div class="k" style="font-size:12px;color:var(--muted)">4 拍时长</div></div>
+    </div>
+    <div class="tip" id="bpmTip">💡 建议：强拍给动作，弱拍给眼神/字幕；画面比拍点早 1—2 帧出现；不要每个鼓点都切。</div>
+  </div>
+
+  <h2 class="sec">J-cut / L-cut：最高级的“顺”</h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:14%">技法</th><th style="width:34%">怎么做</th><th style="width:24%">效果</th><th>例子</th></tr>
+      <tr><td><b>J-cut</b></td><td>下一场的声音先入，画面后切</td><td>让转场更自然；制造预期</td><td>先听到“你以为你赢了？”，再切到说话的人</td></tr>
+      <tr><td><b>L-cut</b></td><td>上一场的声音延续，画面先切</td><td>让情绪延续；制造回味</td><td>她说“我从来没有爱过你”，画面已经切到男主的眼泪</td></tr>
+    </table>
+    <p class="muted">操作：把音频分离，单独拖动音频的头/尾 0.3—0.8 秒；不要把声音拖得太远，否则会像音画不同步。</p>
+  </div>
+
+  <h2 class="sec">镜头语言：景别是情绪的刻度</h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th>景别</th><th>作用</th><th>短剧里怎么用</th></tr>
+      <tr><td>远景/全景</td><td>交代空间、孤立、命运感</td><td>开场/结尾/时间跳跃/打斗</td></tr>
+      <tr><td>中景</td><td>对话、行动、关系</td><td>最常用；对话主力</td></tr>
+      <tr><td>近景</td><td>情绪、表情、态度</td><td>关键台词/反转</td></tr>
+      <tr><td>特写</td><td>强调细节、情绪爆点</td><td>签字/戒指/眼泪/手机屏幕</td></tr>
+    </table>
+    <div class="tip">递进原则：远→全→中→近→特，情绪逐步推高；反过来，情绪逐步释放。不要一场戏里来回乱跳景别。</div>
+  </div>
+
+  <div class="callout"><b>“卡点前”到底做什么：</b>① 动作起势提前 2—4 帧；② 镜头在拍点前已经推到位；③ 音乐在拍点前有 riser/铺垫；④ 字幕在拍点前 0.5 秒出现关键词。拍点落下时，观众看到的是“结果”，不是“刚开始”。</div>
+</section>
+
+
+<!-- ===== ai.html ===== -->
+<!-- ============ AI 工作流 ============ -->
+<section id="tab-ai" class="tab">
+  <div class="card">
+    <p class="muted">岗位叫“AI 视频短剧生成师”，但测试 1 只让你用豆包生成 4 个人物形象，测试 2 让你用剪映剪原片。公司要的不是“会点生成按钮的人”，而是懂角色、懂画面、懂叙事，能用 AI 提效的人。</p>
+  </div>
+
+  <h2 class="sec">AI 参与的生产环节 <span class="sub">人定方向，AI 出素材</span></h2>
+  <div class="stepflow">
+    <div class="sf">选题/剧本<small>人定方向</small></div>
+    <div class="sf">角色/场景<small>豆包生图</small></div>
+    <div class="sf">分镜<small>人排版</small></div>
+    <div class="sf">生图/生视频<small>AI 出素材</small></div>
+    <div class="sf">配音<small>人调情绪</small></div>
+    <div class="sf">剪映成片<small>人定节奏</small></div>
+    <div class="sf">数据复盘<small>人做判断</small></div>
+  </div>
+
+  <h2 class="sec">测试 1：豆包 4 人物形象 <span class="sub">可直接复制的提示词</span></h2>
+  <div class="card">
+    <div class="callout blue"><b>先记住：</b>面试官不是看“单张好不好看”，是看“四个人像不像同一部剧、设定是否清楚、审美是否高级”。先定角色功能，再写外貌/服装/场景。</div>
+    <div id="charGrid" class="char-grid"></div>
+  </div>
+
+  <h2 class="sec">提示词生成器 <span class="sub">按你的故事改，生成一段可粘贴的提示词</span></h2>
+  <div class="card">
+    <div class="form-grid">
+      <div><label>角色名</label><input id="pgName" value="林晚"></div>
+      <div><label>年龄</label><input id="pgAge" value="28 岁"></div>
+      <div><label>性别</label><select id="pgGender"><option selected>女性</option><option>男性</option></select></div>
+      <div><label>身份</label><input id="pgIdentity" value="集团新任总裁"></div>
+      <div><label>气质/外貌</label><input id="pgLook" value="清冷干练，鹅蛋脸，丹凤眼，黑长直低盘发，红唇"></div>
+      <div><label>服装/道具</label><input id="pgOutfit" value="黑色修身西装 + 白衬衫，手拿离婚协议"></div>
+      <div><label>场景</label><input id="pgScene" value="冷调青灰办公室，窗外城市夜景"></div>
+      <div><label>表情/情绪</label><input id="pgMood" value="克制、轻蔑，眼神平静看镜头"></div>
+      <div><label>构图</label><select id="pgShot"><option selected>半身像，人物居中偏左</option><option>近景，人物居中</option><option>全身像，人物居中</option></select></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <button class="btn btn-p" id="pgMake">✨ 生成提示词</button>
+      <button class="btn btn-o" id="pgCopy">📋 复制</button>
+      <button class="btn btn-o" id="pgReset">↺ 恢复示例</button>
+    </div>
+    <div class="prompt-out" id="pgOut">点击“生成提示词”，这里会出现一段可直接粘贴到豆包的描述。</div>
+    <p class="muted" style="margin-top:8px">统一风格后缀：竖屏 9:16，中国都市短剧人物海报，冷调青灰 + 暖肤，柔和侧逆光，浅景深，电影感写实摄影，高级质感，4K，无文字，无水印，无 logo。</p>
+  </div>
+
+  <h2 class="sec">角色一致性：五个笨办法，但有效</h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:22%">方法</th><th>怎么做</th><th>效果</th></tr>
+      <tr><td>统一风格后缀</td><td>每个提示词尾部加同一段风格/光线/画质描述</td><td>色调、质感接近</td></tr>
+      <tr><td>统一构图</td><td>都做半身、都看镜头、都留同样的负空间</td><td>像同一套人物海报</td></tr>
+      <tr><td>参考图</td><td>用第一张满意的图做参考/垫图（若工具支持）</td><td>脸型/风格更稳</td></tr>
+      <tr><td>角色设定表</td><td>把发型/服装/配饰写成固定标签，每次复制</td><td>不会越生成越跑偏</td></tr>
+      <tr><td>后期统一</td><td>剪映/修图统一色温、对比、颗粒</td><td>掩盖轻微差异</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">去“AI 味”：让画面和声音更像真的</h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:14%">层面</th><th>AI 味的表现</th><th>怎么破</th></tr>
+      <tr><td>画面</td><td>塑料皮肤、过度对称、光线完美、背景干净得不真实</td><td>加颗粒/前景/轻微不对称；保留皮肤纹理；用实用光/环境光</td></tr>
+      <tr><td>人物</td><td>网红脸、表情空、眼神没有焦点</td><td>写具体身份/情绪/动作；用侧脸/低头/手部；后期调色统一</td></tr>
+      <tr><td>声音</td><td>语速均匀、没有呼吸、重音错</td><td>拆句、加停顿、补呼吸/环境音；关键句真人补录</td></tr>
+      <tr><td>台词</td><td>空泛、解释太多、没有潜台词</td><td>加具体细节；让角色说“半句话”；用动作代替解释</td></tr>
+      <tr><td>剪辑</td><td>镜头太长、转场炫、没有反应镜头</td><td>短镜头、硬切、反应镜头、声音桥</td></tr>
+    </table>
+  </div>
+
+  <div class="callout amber"><b>版权提醒：</b>商用前确认原片/小说/音乐/字体授权；AI 人物不碰真实明星/公众人物肖像；按平台/法规要求标注 AI 生成内容。来源不清的素材，宁可不用。</div>
+</section>
+
+
+<!-- ===== project.html ===== -->
+<!-- ============ 60 秒实战 ============ -->
+<section id="tab-project" class="tab">
+  <div class="card">
+    <p class="muted">用原创示例《离婚当天，我成了前夫的上司》，把“选题—脚本—分镜—时间线—包装”完整走一遍。注意：面试现场的原片不一定匹配这个故事，你要学的是结构和方法，不是背台词。</p>
+  </div>
+
+  <h2 class="sec">项目设定 <span class="sub">先把“卖给谁、卖什么”写清楚</span></h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:18%">项目</th><th>内容</th></tr>
+      <tr><td>片名</td><td>《离婚当天，我成了前夫的上司》</td></tr>
+      <tr><td>一句话故事</td><td>被丈夫和继妹联手赶出家门的林晚，第二天以集团新任总裁身份回归，收购前夫公司。</td></tr>
+      <tr><td>类型</td><td>都市 / 离婚 / 复仇 / 身份反转 / 打脸</td></tr>
+      <tr><td>目标平台</td><td>抖音 / 快手（竖屏 9:16），60 秒</td></tr>
+      <tr><td>目标观众</td><td>25—45 岁女性；喜欢强冲突、快反转、大女主</td></tr>
+      <tr><td>核心卖点</td><td>净身出户 → 身份掉马 → 当众打脸 → 前夫下跪</td></tr>
+      <tr><td>结尾钩子</td><td>“机会？你配吗？” + 下集：她一夜清零他的公司</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">三版开头 <span class="sub">同一个故事，三种钩子</span></h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:16%">版本</th><th>开头文案/画面</th><th style="width:16%">钩子类型</th><th style="width:18%">适合</th></tr>
+      <tr><td><b>A 冲突前置</b></td><td>顾沉把离婚协议甩到桌上：“签了它，你一分钱都拿不到。” 林晚签字，抬眼：“希望明天，你还笑得出来。”</td><td>冲突 + 狠话</td><td>原片有离婚/对峙戏；试剪首选</td></tr>
+      <tr><td><b>B 结果先行</b></td><td>“三天后，他跪着求我复婚。而三天前，他刚把我赶出家门。” 画面直接给下跪/暴雨。</td><td>结果 + 倒叙</td><td>原片有下跪/打脸镜头；信息流</td></tr>
+      <tr><td><b>C 身份反差</b></td><td>“所有人都以为，她是被赶出家门的弃妇。直到董事会那天，她走进来，坐在了主位。”</td><td>身份反差 + 悬念</td><td>原片有会议室/身份揭露</td></tr>
+    </table>
+    <div class="tip">试剪建议：有“离婚协议/赶出门/会议室”这些镜头，优先用 A 版。B 版适合信息流，但会提前泄底；C 版适合封面/标题，不一定适合正片开头。</div>
+  </div>
+
+  <h2 class="sec">完整 60 秒脚本 <span class="sub">每一行都要能回答“这 3 秒给了什么新信息”</span></h2>
+  <div class="card">
+    <table class="tbl" style="font-size:12px">
+      <tr><th style="width:8%">时间</th><th style="width:8%">节拍</th><th style="width:34%">台词/旁白</th><th style="width:28%">画面</th><th>声音</th></tr>
+      <tr><td>0—3s</td><td>钩子</td><td>顾沉：“签了它。净身出户，你一分钱都拿不到。”<br>林晚：“希望明天，你还笑得出来。”</td><td>离婚协议甩桌特写 → 顾沉冷笑 → 林晚签字抬眼</td><td>纸张拍桌、低频心跳</td></tr>
+      <tr><td>3—10s</td><td>处境</td><td>旁白：三年婚姻，她替他拿下百亿项目。庆功宴上，功劳却成了继妹的。</td><td>闪回：林晚熬夜改方案；顾沉把合同递给林诗诗；两人碰杯</td><td>弦乐、键盘声、碰杯声</td></tr>
+      <tr><td>10—18s</td><td>打压</td><td>旁白：被赶出顾家那天，暴雨下了一整夜。所有人都以为，她输了。</td><td>林晚拖着行李箱站在雨里；顾家灯火通明</td><td>雨声、雷声、行李箱轮子</td></tr>
+      <tr><td>18—25s</td><td>反转</td><td>林晚接电话：“林总，董事会准备好了。”<br>众人：“林总好。”<br>顾沉：“你怎么会在这里？”</td><td>手机特写 → 会议室门开，林晚走入，众人起立 → 顾沉愣住</td><td>电话接通、高跟鞋、低音鼓点</td></tr>
+      <tr><td>25—31s</td><td>对峙</td><td>顾沉：“林晚，你疯了？”<br>林晚：“疯的是三年前相信你的我。”</td><td>文件推到顾沉面前；两人对峙</td><td>文件拍桌、静音 0.3 秒、台词</td></tr>
+      <tr><td>31—36s</td><td>打脸</td><td>林诗诗：“姐姐，你听我解释——”<br>林晚：“保安，请林小姐出去。”</td><td>林诗诗想插话；保安进来；她被请出</td><td>椅子响、脚步、门关</td></tr>
+      <tr><td>36—42s</td><td>身份</td><td>林建国：“晚晚，爸爸错了。”<br>林晚：“林董，公事公办。”</td><td>林建国拄拐杖出现；林晚转身；父女对视</td><td>拐杖、弦乐上扬</td></tr>
+      <tr><td>42—48s</td><td>打脸</td><td>顾沉跪下：“再给我一次机会。”<br>林晚：“机会？你配吗？”</td><td>顾沉跪下拉手；林晚俯身抽回；特写眼神</td><td>膝盖落地、静音、低频 impact</td></tr>
+      <tr><td>48—60s</td><td>悬念</td><td>旁白：她回来了。这一次，她要拿回一切。</td><td>黑场 → 片名 → 下集预告/林晚背影</td><td>音乐收尾、留白</td></tr>
+    </table>
+    <div class="tip">60 秒中文旁白约 240—300 字。上面这版台词/旁白约 260 字，留了气口和音效空间。写脚本时先读一遍，超过 70 秒就删。</div>
+  </div>
+
+  <h2 class="sec">分镜表 <span class="sub">19 个镜头，平均 3 秒；每个镜头只承担一个任务</span></h2>
+  <div class="card">
+    <table class="tbl" style="font-size:11.5px">
+      <thead><tr><th>镜号</th><th>时间</th><th>景别</th><th>画面</th><th>台词/旁白</th><th>声音</th><th>备注</th></tr></thead>
+      <tbody id="shotRows"></tbody>
+    </table>
+  </div>
+
+  <h2 class="sec">轨道与时间线 <span class="sub">先定轨道，再动手</span></h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:14%">轨道</th><th style="width:46%">放什么</th><th>操作要点</th></tr>
+      <tr><td>V1 主轨</td><td>故事主线：离婚→赶出门→会议室→下跪</td><td>保持连续；删掉所有不推进故事的镜头</td></tr>
+      <tr><td>V2 叠加</td><td>闪回、手机特写、片名/下集预告</td><td>闪回降饱和/加柔光；片名用黑场</td></tr>
+      <tr><td>A1 对白</td><td>顾沉/林晚/众人/林建国</td><td>分离音频；对白 -6~-12dB</td></tr>
+      <tr><td>A2 旁白</td><td>3—10s、10—18s、48—60s</td><td>与对白错开；不要叠在一起</td></tr>
+      <tr><td>A3 音乐</td><td>1 首主 BGM：压抑→build→drop→收</td><td>对白处闪避 3—6dB</td></tr>
+      <tr><td>A4 音效</td><td>纸张/雨/高跟鞋/椅子/膝盖/impact</td><td>3—5 个重点；不要每个切点都加</td></tr>
+      <tr><td>T1 字幕</td><td>主字幕 + 关键词高亮</td><td>8—14 字/行；2 行以内</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">脚本字数估算 <span class="sub">写旁白时，先知道会不会超时</span></h2>
+  <div class="card">
+    <label for="scriptText" style="font-size:12.5px;font-weight:700;color:var(--navy);display:block;margin-bottom:4px">粘贴你的旁白/台词</label>
+    <textarea id="scriptText" style="width:100%;min-height:110px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:13.5px" placeholder="例：签了它，净身出户，你一分钱都拿不到。"></textarea>
+    <div class="calc-out" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0">
+      <div class="box" style="background:#eef4ff;border-radius:10px;padding:12px;text-align:center"><div class="v" id="scriptChars" style="font-size:20px;font-weight:800;color:var(--navy)">0</div><div class="k" style="font-size:12px;color:var(--muted)">字数</div></div>
+      <div class="box" style="background:#eef4ff;border-radius:10px;padding:12px;text-align:center"><div class="v" id="scriptSec" style="font-size:20px;font-weight:800;color:var(--navy)">—</div><div class="k" style="font-size:12px;color:var(--muted)">预计时长（4.5 字/秒）</div></div>
+      <div class="box" style="background:#eef4ff;border-radius:10px;padding:12px;text-align:center"><div class="v" id="scriptAdvice" style="font-size:13px;font-weight:700;color:var(--navy)">—</div><div class="k" style="font-size:12px;color:var(--muted)">建议</div></div>
+    </div>
+  </div>
+
+  <h2 class="sec">素材不匹配怎么办 <span class="sub">不要和素材对抗，要重新设计故事</span></h2>
+  <div class="grid3">
+    <div class="card"><div class="weekbar"><h3>只有一场戏</h3></div><p class="small">做成“单场冲突”：前 3 秒给最狠一句；中段给双方立场；结尾给一个未解决的问题。用字幕卡交代“三年前/今天”。</p></div>
+    <div class="card"><div class="weekbar"><h3>只有人物/空镜</h3></div><p class="small">做“人物志/预告片”：旁白建立人设；3—5 个镜头做情绪；结尾打字幕“她的故事，才刚刚开始”。</p></div>
+    <div class="card"><div class="weekbar"><h3>素材很短</h3></div><p class="small">就做 30—45 秒：钩子—打压—反转—钩子。完成度 &gt; 时长；短而完整比长而空好。</p></div>
+  </div>
+</section>
+
+
+<!-- ===== qa.html ===== -->
+<!-- ============ 面试问答 ============ -->
+<section id="tab-qa" class="tab">
+  <div class="card">
+    <p class="muted"><b id="qaTotal">21</b> 个高频面试问题。每题含：<b>考官意图</b>（他到底想听什么）、<b>答题框架</b>（按什么结构说）、<b>参考要点</b>（说什么内容）、<b>金句</b>（一句话收尾加分）。先自己想一遍，再点开对照。</p>
+    <div class="callout blue" style="margin-bottom:0"><b>用法：</b>不要默读。点开问题，先开口说 60 秒，再看参考答案；说不出来就说明还没掌握。</div>
+  </div>
+  <div id="qaList"></div>
+
+  <h2 class="sec">🙋 面试反问 <span class="sub">问得好也能加分</span></h2>
+  <div class="card">
+    <ul style="margin-left:18px;font-size:13.5px">
+      <li style="margin-bottom:8px"><b>这个岗位的核心指标是什么？3 秒完播/完播/点击/转化各占多重？</b>——显示你关心结果，不是只关心剪辑。</li>
+      <li style="margin-bottom:8px"><b>我接手的是成熟账号还是新号？团队有编导/运营配合吗？</b>——显示你理解“一个人一部剧”的边界。</li>
+      <li style="margin-bottom:8px"><b>公司提供原片/小说/音乐/字体的授权库吗？有 AI 工具预算吗？</b>——显示你有版权/成本意识。</li>
+      <li style="margin-bottom:8px"><b>试用期的考核标准是什么？转正后的成长路径？</b>——显示你想长期做。</li>
+      <li style="margin-bottom:0"><b>你们最欣赏的同行/账号是哪一个？我回去研究。</b>——显示你愿意做功课。</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ===== mock.html ===== -->
+<!-- ============ 模拟面试 ============ -->
+<section id="tab-mock" class="tab">
+  <div class="card">
+    <p class="muted">模拟真实面试：随机抽题 → 限时思考 → <b>开口说出来</b> → 对照答案 → 标记掌握情况。进度保存在浏览器里。建议每天练 3—5 题，最终目标：全部标为「已掌握」。</p>
+    <div class="mock-status">
+      <span>✅ 已掌握：<b id="mMastered">0</b></span>
+      <span>🔁 需复习：<b id="mReview">0</b></span>
+      <span>⬜ 未开始：<b id="mTodo">0</b></span>
+    </div>
+    <div class="progress"><i id="mBar" style="width:0%"></i></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-p" id="mNext">🎲 随机抽题</button>
+      <button class="btn btn-o" id="mTimerBtn">⏱ 开始思考（2分钟）</button>
+      <button class="btn btn-o" id="mReveal">👁 显示参考答案</button>
+      <button class="btn btn-o" id="mReset" style="margin-left:auto">🔄 重置进度</button>
+    </div>
+  </div>
+  <div class="card" id="mockCard" style="display:none"></div>
+
+  <div class="callout amber"><b>开口练：</b>计时 2 分钟，先自己说一遍。说不满 60 秒，说明结构没搭好；超过 3 分钟，说明重点太多。面试不是抢答，是让对方听懂。</div>
+</section>
+
+
+<!-- ===== quiz.html ===== -->
+<!-- ============ 测验练习 ============ -->
+<section id="tab-quiz" class="tab">
+  <div id="quizHome" class="card" style="text-align:center;padding:40px 20px">
+    <h2 style="color:var(--navy);margin-bottom:8px">📝 题库测验</h2>
+    <p class="muted" style="margin-bottom:10px">共 <b id="quizTotal">30</b> 道选择题（术语/叙事/剪辑/声音/AI/试剪），随机抽题、选项顺序打乱。历史最高分：<b id="quizBest">—</b></p>
+    <div class="muted" style="display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;font-size:12.5px;margin-bottom:16px">
+      <span>📕 错题本：<b id="wrongCount">0</b> 题（答错自动收录，答对自动移除）</span>
+      <button class="btn btn-o" id="wrongStart" style="padding:5px 12px;font-size:12.5px">🎯 只练错题</button>
+      <button class="btn btn-o" id="quizBestReset" style="padding:5px 12px;font-size:12.5px">清除最高分</button>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <button class="btn btn-p" data-n="10">快速热身 · 10题</button>
+      <button class="btn btn-p" data-n="20">标准练习 · 20题</button>
+      <button class="btn btn-p" data-n="all" id="quizAllBtn">全题库 · 30题</button>
+    </div>
+    <p class="muted" style="margin-top:16px;font-size:12.5px">建议先「快速热身」，错题都会附解析。</p>
+    <div id="topicPanel" class="topic-panel" style="margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);text-align:left"></div>
+    <div class="two-col" style="margin-top:18px;text-align:left">
+      <div style="border:1px solid var(--line);border-radius:10px;padding:12px 14px">
+        <b style="color:var(--navy);font-size:13px">怎么练</b>
+        <p class="muted" style="font-size:12.5px;margin-top:6px">10 题热身 → 看错题解析 → 回「术语/剪映」补一轮 → 20 题 → 全题库。错题本会自动记录，答对自动移除。</p>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:10px;padding:12px 14px">
+        <b style="color:var(--navy);font-size:13px">高频考点</b>
+        <p class="muted" style="font-size:12.5px;margin-top:6px">3 秒钩子、六拍、卡点、J/L cut、对白/音乐、字幕安全区、导出参数、AI 人物一致性、2 小时试剪节奏。</p>
+      </div>
+    </div>
+  </div>
+  <div id="quizRun" style="display:none"></div>
+</section>
+
+
+<!-- ===== test.html ===== -->
+<!-- ============ 2 小时试剪 ============ -->
+<section id="tab-test" class="tab">
+  <div class="timer-wrap">
+    <div class="timer-top">
+      <div>
+        <div class="timer-label">OFFLINE EDIT TEST / 2 HOURS</div>
+        <div class="timer-big" id="testBig">02:00:00</div>
+        <div class="timer-meta">
+          <span>标准 120 分钟</span>
+          <span>·</span>
+          <span>培训约 10 分钟</span>
+          <span>·</span>
+          <span>目标 45—75 秒成片</span>
+        </div>
+      </div>
+      <div class="timer-actions">
+        <button class="btn btn-p" id="testStart">▶ 开始计时</button>
+        <button class="btn" id="testReset">↺ 重置</button>
+      </div>
+    </div>
+    <div class="progress" style="background:rgba(255,255,255,.14);margin:14px 0 4px"><i id="testProgress" style="width:0%;background:linear-gradient(90deg,#7ef0b2,#2f7dff)"></i></div>
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:#9fc3ff">
+      <span id="testPhaseNow">当前：培训 / 提问</span>
+      <span id="testHard">硬标准：先听懂要求，再动手</span>
+    </div>
+    <div class="phase-list" id="testPhaseList"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <button class="btn" id="testModeStd" style="border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.12);color:#fff">标准 120 分钟</button>
+      <button class="btn" id="testModeSos" style="border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#d7e4ff">🚨 15 分钟应急</button>
+    </div>
+  </div>
+
+  <h2 class="sec">现场检查清单 <span class="sub">勾选后自动保存</span></h2>
+  <div class="card"><div id="testChecks" class="check-list"></div></div>
+
+  <h2 class="sec">交付话术（30 秒）</h2>
+  <div class="card">
+    <div class="quote" id="handoffText">“这是我剪的 60 秒版本。前 3 秒用 ___ 做钩子；中段用 ___ 补因果；结尾用 ___ 留悬念。声音上做了 ___；字幕控制在两行以内。如果再多 10 分钟，我会补 ___。”</div>
+    <button class="btn btn-o btn-sm" id="handoffCopy" style="margin-top:10px">📋 复制话术</button>
+  </div>
+
+  <h2 class="sec">现场工具包 / 灾难预案</h2>
+  <div class="two-col">
+    <div class="card">
+      <div class="weekbar"><h3>工具包</h3><span class="badge blue">提前一晚装好</span></div>
+      <ul class="mini-list">
+        <li><b>电脑</b><span>充电器、电池 ≥80%</span></li>
+        <li><b>鼠标</b><span>触控板剪片效率低</span></li>
+        <li><b>耳机</b><span>有线优先，蓝牙有延迟</span></li>
+        <li><b>转接头</b><span>USB-C / HDMI / 读卡</span></li>
+        <li><b>本地包</b><span>BGM / 音效 / 字体 / 提示词</span></li>
+        <li><b>作品集</b><span>二维码 / 手机可开</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="weekbar"><h3>灾难预案</h3><span class="badge red">先保交付</span></div>
+      <ul class="mini-list">
+        <li><b>导不进</b><span>转码 H.264；先导入能播的</span></li>
+        <li><b>没声音</b><span>查轨道静音/耳机/系统输出</span></li>
+        <li><b>崩溃</b><span>重开找自动保存；不要从零剪</span></li>
+        <li><b>导出慢</b><span>先导 720P 保底，再导 1080P</span></li>
+        <li><b>没网</b><span>用本地 BGM/音效；不要修网络</span></li>
+        <li><b>时间不够</b><span>砍到 45 秒，保故事/钩子/字幕</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout"><b>硬停止：</b>60 分钟必须有可看的粗剪；90 分钟锁定画面；105 分钟必须开始导出。完成度大于完美度。</div>
+</section>
+
+
+<!-- ===== portfolio.html ===== -->
+<!-- ============ 作品集 ============ -->
+<section id="tab-portfolio" class="tab">
+  <div class="card">
+    <p class="muted">作品集不需要多，3 条对的片子 + 1 页复盘，足够让面试官判断你能不能独立交付。关键是：每条都能讲清“为什么这样剪”，而不是“我觉得好看”。</p>
+  </div>
+
+  <h2 class="sec">3+1 作品组合</h2>
+  <div class="grid2">
+    <div class="card"><div class="weekbar"><h3>① 短剧推广（对白剪辑）</h3><span class="badge coral">最匹配</span></div><p class="small">60 秒；原片对白；前 3 秒钩子、反转、结尾钩子。展示故事/节奏/卡点/声音/字幕。</p></div>
+    <div class="card"><div class="weekbar"><h3>② 小说推文（AI 配音+画面）</h3><span class="badge blue">全链路</span></div><p class="small">60 秒；旁白 240—300 字；画面与台词对得上；有 CTA。展示选题/脚本/AI/配音。</p></div>
+    <div class="card"><div class="weekbar"><h3>③ 30 秒卡点/情绪混剪</h3><span class="badge green">节奏</span></div><p class="small">30 秒；音乐/镜头匹配。展示你“会卡点”，但不要全片都是特效。</p></div>
+    <div class="card"><div class="weekbar"><h3>④ 一页项目复盘</h3><span class="badge amber">思考</span></div><p class="small">目标—限制—选择—结果—改进；附封面/关键帧。证明你不是“碰巧剪得好”。</p></div>
+  </div>
+
+  <h2 class="sec">每条作品怎么讲：四句话</h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:14%">结构</th><th style="width:30%">你要说</th><th>示例</th></tr>
+      <tr><td><b>目标</b></td><td>这条片子给谁看、要什么结果</td><td>给 25—45 岁女性看的离婚逆袭切片，目标是 3 秒完播和点进全集</td></tr>
+      <tr><td><b>限制</b></td><td>素材/时长/平台/预算的限制</td><td>原片只有 4 分钟，必须保留对白，不能加旁白</td></tr>
+      <tr><td><b>选择</b></td><td>你做的 2—3 个关键决定</td><td>把下跪前置到 0—3 秒；中段用两次闪回补因果；结尾静音</td></tr>
+      <tr><td><b>结果/复盘</b></td><td>数据/反馈/如果重来改什么</td><td>3 秒完播 XX%；如果重来，我会把反转提前 5 秒</td></tr>
+    </table>
+    <div class="tip">万能句式：“这条片子我遇到的最大问题是 ___，我用了 ___ 的方法，结果是 ___；如果重来，我会 ___。”</div>
+  </div>
+
+  <h2 class="sec">简历：从“负责”到“结果”</h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:34%">不要写</th><th>改成</th></tr>
+      <tr><td>负责短视频剪辑</td><td>独立完成 60 秒竖屏短剧推广，3 秒完播 XX%，完播 XX%</td></tr>
+      <tr><td>熟练使用剪映</td><td>用剪映完成多轨剪辑/卡点/字幕/调色/导出，单条平均 X 小时</td></tr>
+      <tr><td>会用 AI 工具</td><td>用豆包建立 4 人角色设定库，统一风格，单条人物图产出 20 分钟</td></tr>
+      <tr><td>参与爆款视频</td><td>拆解 50 条同类爆款，建立 30 条钩子库；复用后 3 秒完播提升 XX%</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">作品集十个雷区</h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:30%">雷区</th><th>为什么扣分</th><th>怎么改</th></tr>
+      <tr><td>一上来就是 3 分钟长片</td><td>面试官没时间看</td><td>前 10 秒放最强钩子；或剪 60 秒版</td></tr>
+      <tr><td>全是特效/转场</td><td>看不到故事</td><td>保留 1 条叙事片；特效片放最后</td></tr>
+      <tr><td>字幕错别字/挡脸</td><td>专业度归零</td><td>逐字校对；检查安全区</td></tr>
+      <tr><td>音乐盖对白</td><td>听不清内容</td><td>闪避；对白优先</td></tr>
+      <tr><td>横屏硬转竖屏</td><td>构图残缺</td><td>重新构图/背景模糊/选竖屏素材</td></tr>
+      <tr><td>用未授权音乐/字体</td><td>版权风险</td><td>商用库/免费商用字体</td></tr>
+      <tr><td>把团队作品说成个人</td><td>一问就露馅</td><td>明确负责部分；能现场复现</td></tr>
+      <tr><td>只有成片，没有复盘</td><td>看不到思考</td><td>加 1 页目标/选择/结果/改进</td></tr>
+      <tr><td>数据造假</td><td>背调/追问会崩</td><td>诚实写样本/过程指标</td></tr>
+      <tr><td>文件命名混乱</td><td>显得不专业</td><td>项目_平台_版本_日期</td></tr>
+    </table>
+  </div>
+</section>
+
+
+<!-- ===== plan.html ===== -->
+<!-- ============ 学习计划 ============ -->
+<section id="tab-plan" class="tab">
+  <div class="card">
+    <div class="weekbar"><h3>📅 7 天训练计划</h3><button class="btn btn-o btn-sm" id="planReset" style="margin-left:auto">重置勾选</button></div>
+    <p class="muted">每天 3—4 小时。不要等“准备好了”再开始；先做出一条 60 秒，再谈完美。</p>
+    <div class="progress"><i id="planBar" style="width:0%"></i></div>
+    <p class="muted" id="planPct">已完成 0 / 0 项</p>
+  </div>
+  <div id="planList"></div>
+
+  <h2 class="sec">入职 30—60—90 天 <span class="sub">拿到 offer 只是开始</span></h2>
+  <div class="card">
+    <table class="tbl">
+      <tr><th style="width:18%">阶段</th><th style="width:24%">目标</th><th>具体动作</th></tr>
+      <tr><td><b>第 1—30 天</b><br>活下来</td><td>熟悉业务/流程；稳定交付；建立素材库</td><td>拆 50—100 条对标；跟完 2—3 条完整项目；建钩子库/模板/字体/音效库；记录每条数据</td></tr>
+      <tr><td><b>第 31—60 天</b><br>做稳定</td><td>提升 3 秒完播/完播；缩短制作时间</td><td>每周 1 次 A/B（开头/封面）；复盘 top3/bottom3；把流程写成 SOP；建立 AI 角色库</td></tr>
+      <tr><td><b>第 61—90 天</b><br>做增量</td><td>跑出小爆款/高转化；形成方法</td><td>主导一个题材/账号；测试新结构；带新人/分享；提出 1 个流程改进</td></tr>
+    </table>
+  </div>
+
+  <h2 class="sec">三条路线 <span class="sub">按剩余时间选</span></h2>
+  <div class="route">
+    <div class="r"><b>只剩 1 天</b><p>读岗位拆解/2小时试剪/面试问答；做一次 120 分钟模拟；把自我介绍背到自然。</p><button class="btn btn-p" data-go="qa">去练面试</button></div>
+    <div class="r"><b>还有 3 天</b><p>加读爆款叙事/剪映全流程；用原片剪 1 条 60 秒；准备 4 张人物图。</p><button class="btn btn-p" data-go="edit">去学剪映</button></div>
+    <div class="r"><b>还有 7 天</b><p>按上面的计划执行；完成 3 条作品 + 1 页复盘；模拟面试至少 2 次。</p><button class="btn btn-p" data-go="portfolio">看作品集</button></div>
+  </div>
+
+  <div class="callout green"><b>每天的最小动作：</b>拆 3 条对标；剪 1 条 30 秒；开口答 3 道面试题。坚持 7 天，你会明显感觉“有话可说、有片可拿”。</div>
+</section>
+
+
+<!-- ===== sheet.html ===== -->
+<!-- ============ 速查表 ============ -->
+<section id="tab-sheet" class="tab">
+  <div class="card">
+    <div class="weekbar"><h3>📄 速查表（打印版）</h3><span class="badge green">面试前一天带一张纸</span></div>
+    <p class="muted">把这一页打印出来，或者存成 PDF 放手机。2 小时试剪前 5 分钟看一遍。</p>
+    <button class="btn btn-p" id="printBtn" style="padding:12px 22px">🖨️ 打印 / 存为 PDF</button>
+  </div>
+
+  <div id="sheetBody" class="sheet">
+    <div class="sh-block">
+      <h2>AI视频短剧生成师 · 2小时试剪速查</h2>
+      <div class="sh-meta">完成度 &gt; 完美度 · 45—75 秒 · 9:16 · 前 3 秒定生死</div>
+    </div>
+
+    <div class="sh-block">
+      <h3>一、120 分钟时间轴</h3>
+      <table class="sh-table">
+        <tr><th style="width:14%">时间</th><th style="width:30%">动作</th><th>硬标准</th></tr>
+        <tr><td>0—10′</td><td>培训/提问/自检</td><td>复述要求；导入测试片段</td></tr>
+        <tr><td>10—20′</td><td>看片/一句话故事/六拍</td><td>1 句话 + 6 拍；选 3 个最强镜头</td></tr>
+        <tr><td>20—35′</td><td>脚本/旁白/定钩子</td><td>前 3 秒定稿；总长 ≤75 秒</td></tr>
+        <tr><td>35—70′</td><td>粗剪</td><td>60 分钟必须有完整粗剪</td></tr>
+        <tr><td>70—90′</td><td>精剪/卡点/反应镜头</td><td>2 处 J/L；8—12 个重拍；3 个反应镜头</td></tr>
+        <tr><td>90—105′</td><td>声音/字幕/调色</td><td>对白清楚；字幕无错；色温统一</td></tr>
+        <tr><td>105—120′</td><td>导出/QC/交付</td><td>105 必须开始导出；30 秒阐述</td></tr>
+      </table>
+    </div>
+
+    <div class="sh-block">
+      <h3>二、60 秒六拍</h3>
+      <table class="sh-table">
+        <tr><th style="width:14%">时间</th><th style="width:16%">节拍</th><th>任务</th></tr>
+        <tr><td>0—3s</td><td>钩子</td><td>冲突/结果/身份反差；第一帧就有信息</td></tr>
+        <tr><td>3—10s</td><td>处境</td><td>交代因果，不铺陈</td></tr>
+        <tr><td>10—25s</td><td>打压</td><td>把主角逼到墙角</td></tr>
+        <tr><td>25—40s</td><td>反转</td><td>身份/证据/靠山</td></tr>
+        <tr><td>40—52s</td><td>打脸</td><td>情绪释放，反派失势</td></tr>
+        <tr><td>52—60s</td><td>悬念</td><td>新危机/新问题/下集</td></tr>
+      </table>
+    </div>
+
+    <div class="sh-block">
+      <h3>三、前 3 秒三件套</h3>
+      <div class="sh-quote"><b>画面：</b>冲突/动作/脸，第一帧就有信息。</div>
+      <div class="sh-quote"><b>字幕：</b>6—10 字，说结果/反差/问题。</div>
+      <div class="sh-quote"><b>声音：</b>一句狠话/音效/低频；静音也能看懂。</div>
+    </div>
+
+    <div class="sh-block">
+      <h3>四、导出与交付</h3>
+      <div class="sh-quote"><b>导出：</b>1080P / 30fps / H.264 / 8—12Mbps / MP4 / AAC 320。</div>
+      <div class="sh-quote"><b>检查：</b>前 3 秒、故事、对白、字幕、黑帧、结尾、封面、文件名。</div>
+      <div class="sh-quote"><b>命名：</b>项目_平台_版本_日期，例如“离婚当天_抖音_v3_1122.mp4”。</div>
+    </div>
+
+    <div class="sh-block">
+      <h3>五、交付话术</h3>
+      <div class="sh-quote">“这是我剪的 60 秒版本。前 3 秒用 ___ 做钩子；中段用 ___ 补因果；结尾用 ___ 留悬念。声音上做了 ___；字幕控制在两行以内。如果再多 10 分钟，我会补 ___。”</div>
+    </div>
+
+    <div class="sh-block">
+      <h3>六、必须记住的数字</h3>
+      <div class="sh-grid">
+        <div class="sh-term"><b>45—75 秒</b><span>试剪成片长度</span></div>
+        <div class="sh-term"><b>0—3 秒</b><span>钩子窗口</span></div>
+        <div class="sh-term"><b>8—14 字</b><span>字幕每行</span></div>
+        <div class="sh-term"><b>250—350px</b><span>底部安全区</span></div>
+        <div class="sh-term"><b>8—12Mbps</b><span>1080P 码率</span></div>
+        <div class="sh-term"><b>105 分钟</b><span>必须开始导出</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== footer.html ===== -->
+</main>
+<div class="footer">AI视频短剧生成师 · 面试学习助手 v1.0 | 内容更新 2026-11 | 数据仅保存在本机浏览器 | 软件界面/平台规则以实际版本为准 | 祝你拿下 offer 🎬</div>
+</div>
+<div id="printArea"></div>
+<script>
+
+
+<!-- ===== data.js ===== -->
+/* ================= 数据 ================= */
+const TERMS = [
+  {t:"3秒完播率", e:"3s completion rate", c:"数据", s:"播放超过 3 秒的人数 ÷ 总播放人数；衡量开头留存。", w:"面试先问“开头留人”，不要一上来只聊剪辑。"},
+  {t:"完播率", e:"completion rate", c:"数据", s:"完整播放 ÷ 总播放；衡量整条片子的吸引力。", w:"完播低不一定是片子长，可能是中段没有新信息。"},
+  {t:"CTR", e:"click-through rate", c:"数据", s:"点击率 = 点击 ÷ 曝光；封面/标题/首帧决定。", w:"点击高但转化低，通常是标题党或内容不匹配。"},
+  {t:"CVR", e:"conversion rate", c:"数据", s:"转化率 = 转化 ÷ 点击；推文/切片看点击后的承接。", w:"面试时把 CTR 和 CVR 分开说，会显得懂业务。"},
+  {t:"ROI", e:"return on investment", c:"数据", s:"投入产出比；投流常用。", w:"不要只聊播放，要能聊“这条内容带来什么结果”。"},
+  {t:"投流", e:"paid traffic", c:"数据", s:"付费买流量；和自然流相对。", w:"投流素材更看前 3 秒和点击率。"},
+  {t:"自然流", e:"organic traffic", c:"数据", s:"平台推荐带来的免费流量。", w:"自然流起量看内容力，投流起量看素材/出价。"},
+  {t:"完播曲线", e:"retention curve", c:"数据", s:"观众在每一秒的留存；曲线陡降处就是问题点。", w:"面试时能说“看曲线定位到秒”，比空谈完播强。"},
+  {t:"黄金3秒", e:"golden 3 seconds", c:"叙事", s:"观众决定是否划走的前 3 秒；核心是信息密度。", w:"不是“加特效”，是“给一个必须留下的理由”。"},
+  {t:"钩子", e:"hook", c:"叙事", s:"让观众想继续看的信息/画面/台词。", w:"钩子要同时服务画面、字幕、声音三层。"},
+  {t:"六拍", e:"six-beat structure", c:"叙事", s:"钩子—处境—打压—反转—打脸—悬念。", w:"60 秒短剧最稳的结构；面试可当场画出来。"},
+  {t:"爽点", e:"payoff", c:"叙事", s:"让观众情绪释放的剧情点。", w:"爽点不是一直爽，是“憋屈—释放”的落差。"},
+  {t:"马甲", e:"hidden identity", c:"叙事", s:"角色隐藏的真实身份；掉马=身份揭露。", w:"身份反差是短剧最常用的钩子之一。"},
+  {t:"反转", e:"twist", c:"叙事", s:"观众以为的走向被推翻；要有铺垫才可信。", w:"反转不是硬编，前面要留证据/伏笔。"},
+  {t:"卡点", e:"beat sync", c:"剪辑", s:"让画面/动作/台词落在音乐拍点或情绪点上。", w:"强拍给动作，弱拍给眼神；不要每个鼓点都切。"},
+  {t:"J-cut", e:"J cut", c:"剪辑", s:"下一场的声音先入，画面后切。", w:"让转场更自然；例：先听到下一句台词，再切说话人。"},
+  {t:"L-cut", e:"L cut", c:"剪辑", s:"上一场的声音延续到下一场画面。", w:"让情绪延续；例：她的台词延续到男主落泪。"},
+  {t:"越轴", e:"crossing the axis", c:"剪辑", s:"违反 180 度轴线，人物关系/方向混乱。", w:"越轴了用中性镜头/全景/摄影机过线来救。"},
+  {t:"30度法则", e:"30-degree rule", c:"剪辑", s:"相邻镜头机位至少差 30 度，避免跳切。", w:"同一个人连续两个近景，角度太近就会“跳”。"},
+  {t:"景别", e:"shot size", c:"剪辑", s:"远景/全景/中景/近景/特写等画面范围。", w:"景别是情绪的刻度；不要一场戏乱跳。"},
+  {t:"反应镜头", e:"reaction shot", c:"剪辑", s:"切到听者/旁观者的脸或动作。", w:"对话/打脸的情绪靠反应镜头，不要一直拍说话人。"},
+  {t:"插入镜头", e:"insert shot", c:"剪辑", s:"切到手/道具/环境，补信息/盖剪辑点。", w:"素材不够时，插入镜头是救场神器。"},
+  {t:"匹配剪辑", e:"match cut", c:"剪辑", s:"用形状/运动/颜色/声音相似的两个镜头相接。", w:"转场高级感来源，但不要为了匹配牺牲故事。"},
+  {t:"蒙太奇", e:"montage", c:"剪辑", s:"用一组短镜头压缩时间/表达情绪。", w:"每个镜头必须给不同信息，否则就是堆素材。"},
+  {t:"动作剪辑", e:"action cut", c:"剪辑", s:"在动作中间切到另一角度。", w:"打斗/耳光/摔门在动作起势—接触—反应三点切。"},
+  {t:"声音桥", e:"sound bridge", c:"声音", s:"用声音连接两个场景，让转场更顺。", w:"素材不连贯时，声音比画面更容易“骗”过去。"},
+  {t:"闪避", e:"ducking", c:"声音", s:"对白出现时自动降低音乐音量。", w:"对白清楚永远第一；音乐再燃也不能盖台词。"},
+  {t:"LUFS", e:"loudness units", c:"声音", s:"响度单位；平台常用 -14 LUFS 左右。", w:"面试聊“手机外放清楚”比背数字更加分。"},
+  {t:"dBTP", e:"true peak", c:"声音", s:"真峰值；建议不超过 -1 dBTP。", w:"防止爆音/削波，导出前看峰值。"},
+  {t:"环境音", e:"room tone", c:"声音", s:"场景底噪/雨/风/人群/空调。", w:"补环境音能掩盖剪辑点，减少“真空感”。"},
+  {t:"码率", e:"bitrate", c:"交付", s:"单位时间的数据量；影响画质/文件大小。", w:"1080P 短剧 8—12Mbps 足够；平台会二次压缩。"},
+  {t:"H.264", e:"codec", c:"交付", s:"兼容性最好的视频编码。", w:"导出优先 H.264；特殊编码导入失败先转码。"},
+  {t:"代理", e:"proxy", c:"交付", s:"用低分辨率素材剪辑，导出时换回原片。", w:"4K/多轨卡顿时用；面试现场时间紧，尽量别折腾。"},
+  {t:"LUT", e:"lookup table", c:"交付", s:"调色预设；强度 30—60%，不要叠。", w:"套 LUT 不是高级，统一/干净才是。"},
+  {t:"关键帧", e:"keyframe", c:"剪辑", s:"给参数做动画；两个关键帧之间自动补。", w:"推镜/闪白/音乐闪避/字幕渐显都靠它。"},
+  {t:"安全区", e:"safe area", c:"交付", s:"避开平台 UI 的画面区域。", w:"9:16 底部保守留 250—350px，字幕别贴边。"},
+  {t:"CTA", e:"call to action", c:"叙事", s:"行动号召：搜索/看全集/关注。", w:"结尾不总结，给下一步；但不要虚假承诺。"},
+  {t:"A/B测试", e:"A/B test", c:"数据", s:"一次只改一个变量，对比两版数据。", w:"同时换封面/标题/开头，你永远不知道哪个起作用。"},
+  {t:"角色一致性", e:"character consistency", c:"AI", s:"同一角色在不同图中保持脸/服装/气质统一。", w:"靠设定表+统一风格后缀+参考图+后期统一。"},
+  {t:"图生视频", e:"image-to-video", c:"AI", s:"用首帧图生成 3—5 秒动态镜头。", w:"镜头越短越容易藏缺陷；多生成几条再选。"},
+  {t:"提示词", e:"prompt", c:"AI", s:"描述主体/外貌/服装/场景/构图/光线/风格。", w:"越具体越不“AI 味”；负面提示词也要写。"},
+  {t:"去AI味", e:"de-AI", c:"AI", s:"让画面/声音/台词更像真实拍摄。", w:"颗粒/前景/不对称/呼吸/停顿/具体细节。"},
+  {t:"版权", e:"copyright", c:"交付", s:"原片/小说/音乐/字体/AI 肖像的使用授权。", w:"来源不清的素材宁可用；商用库保留记录。"}
+];
+
+const HOOKS = [
+  {k:"冲突前置", q:"“签了它，净身出户，你一分钱都拿不到。”", n:"离婚/复仇/豪门"},
+  {k:"结果先行", q:"“被赶出家门三天后，全家跪着求我回去。”", n:"逆袭/打脸"},
+  {k:"身份反差", q:"“人人欺负的保洁阿姨，其实是集团董事长。”", n:"马甲/隐藏大佬"},
+  {k:"悬念提问", q:"“如果给你一千万，让你离开你老公，你走不走？”", n:"情感/伦理"},
+  {k:"视觉暴击", q:"婚礼大屏突然播放新娘的秘密。", n:"抓奸/婚礼/直播"},
+  {k:"台词暴击", q:"“你不过是他的替身。”", n:"虐恋/替身/追妻"},
+  {k:"冲突前置", q:"“离婚协议我签了，但公司，我要拿走。”", n:"大女主/商战"},
+  {k:"结果先行", q:"“我被裁员那天，买下了整家公司。”", n:"逆袭/职场"},
+  {k:"身份反差", q:"“全家都笑我穷，直到校长喊我一声少爷。”", n:"校园/豪门"},
+  {k:"悬念提问", q:"“如果重来一次，你还会嫁给他吗？”", n:"重生/情感"},
+  {k:"视觉暴击", q:"她一巴掌甩过去，全场安静了。", n:"打脸/宴会"},
+  {k:"台词暴击", q:"“你以为你赢了？游戏才刚开始。”", n:"复仇/商战"},
+  {k:"冲突前置", q:"“孩子不是你的，房子也不是你的。”", n:"婚姻/反转"},
+  {k:"结果先行", q:"“三天后，他跪着求我复婚。”", n:"追妻/打脸"},
+  {k:"身份反差", q:"“被退婚的穷小子，成了她的顶头上司。”", n:"职场/逆袭"},
+  {k:"悬念提问", q:"“如果给你一次重生，你最想改变哪一天？”", n:"重生/悬念"},
+  {k:"视觉暴击", q:"葬礼上，她突然睁开了眼。", n:"假死/复仇"},
+  {k:"台词暴击", q:"“我从来没有爱过你。”", n:"虐恋/追妻"},
+  {k:"冲突前置", q:"“这个家，有她没我，有我没她。”", n:"婆媳/家庭"},
+  {k:"结果先行", q:"“所有人都以为她输了，直到董事会那天。”", n:"身份/商战"},
+  {k:"身份反差", q:"“月薪三千的实习生，是公司最大股东。”", n:"职场/马甲"},
+  {k:"悬念提问", q:"“你猜，她为什么偏偏选在今天离婚？”", n:"离婚/悬念"},
+  {k:"视觉暴击", q:"他当众跪下，把戒指扔进了垃圾桶。", n:"情感/反转"},
+  {k:"台词暴击", q:"“机会？你配吗？”", n:"打脸/爽剧"}
+];
+
+const EDIT_STEPS = [
+  {t:"3.1 开工前的 10 分钟准备", b:["软件：剪映专业版稳定版，提前打开/登录，试导一段。","项目：9:16、1080×1920、30fps；原片 25fps 就选 25。","声音：插耳机，确认对白能听清；准备本地 BGM/音效。","素材：放本地硬盘，不要放 U 盘/网盘/长中文路径。","工具：鼠标、充电器、转接头、备用耳机。"], tip:"现场最怕的不是不会剪，是软件没登录/素材导不进/耳机没声音。"},
+  {t:"3.2 界面地图：先知道自己在哪", b:["左上：媒体/音频/文本/贴纸/特效/转场/滤镜/调节。","中上：播放器；空格播放，Ctrl+F 全屏。","右侧：属性面板；音量、缩放、位置、关键帧、调色。","底部：时间线；Ctrl+B 分割，Backspace 删除。","右上：导出；Ctrl+E。"], tip:"先记住五块：素材、播放器、属性、时间线、导出。"},
+  {t:"3.3 新建项目：参数一次设对", b:["比例 9:16；分辨率 1080×1920；帧率 30fps。","色彩空间 Rec.709/标准；音频 48kHz。","草稿命名：项目名_平台_版本_日期。","保存位置：本地非系统盘；不要放同步盘。","先导入测试片段，确认画面/声音/性能正常。"], tip:"一开始设错，后面全是返工。"},
+  {t:"3.4 导入与整理：素材乱，剪辑一定乱", b:["建文件夹：01_原片、02_音乐、03_画面、04_字幕、05_工程、06_导出。","重命名：场次_镜号_内容，例如 S03_02_林晚推门。","1.5× 通看一遍，不做笔记；第二遍记时间码。","标出 10 个情绪点/动作/台词；选 3 个最强镜头。","先标记明显不能用（糊/抖/穿帮/水印）的素材。"], tip:"不要爱上素材；不推进故事的镜头，再美也删。"},
+  {t:"3.5 时间线：剪辑的手术台", b:["主轨放故事主线；画中画放闪回/字幕背景/logo。","音频轨固定：A1 对白、A2 音乐、A3 音效、A4 环境。","Ctrl+B 分割；Backspace 删除；N 开关吸附。","Ctrl+ +/- 缩放时间线；Alt+滚轮左右滚动。","复杂段落用“复合片段”打包；关键帧做推镜/闪白/闪避。"], tip:"时间线要干净：轨道顺序固定、命名清楚、不要留无意义空隙。"},
+  {t:"3.6 第一遍粗剪：把故事立起来", b:["写一句话故事：谁+想要什么+被谁阻止+反转。","定六拍：钩子/处境/打压/反转/打脸/悬念。","先放钩子，再按因果接主线；不要按拍摄顺序。","粗剪目标 70—75 秒，精剪再删到 60。","到 60 分钟必须有完整粗剪；没有就砍内容。"], tip:"粗剪只做故事；转场/特效/调色/精修字幕都往后放。"},
+  {t:"3.7 第二遍精剪：让镜头“会说谎”", b:["进入晚、离开早：从动作/情绪已经开始的地方切。","切在动作上：抬手→切另一角度→落下。","J-cut：下一场声音先入；L-cut：上一场声音延续。","对话：说话人+反应镜头交替；关键台词前后给反应。","删废镜头：每 3—5 秒必须有新信息。"], tip:"精剪不是修干净，是让观众感觉不到剪辑点。"},
+  {t:"3.8 J-cut / L-cut：最高级的“顺”", b:["分离音频；单独拖动音频头/尾 0.3—0.8 秒。","J-cut：先听到下一场台词，再切到说话人。","L-cut：上一场台词延续到下一场反应。","不要超过 1 秒，否则像音画不同步。","关键台词前留 0.2—0.3 秒气口。"], tip:"声音比画面早/晚一点，观感就高级很多。"},
+  {t:"3.9 镜头语言：景别是情绪的刻度", b:["远景/全景：空间、孤立、命运；中景：对话/关系。","近景/特写：情绪/细节；大特写：极强压迫。","角度：仰拍=权力，俯拍=弱小，荷兰角=不安。","构图：三分法/中心/对称/负空间/引导线/框架。","轴线：两个人对话，镜头保持在同一侧。"], tip:"不要背术语；用“这场戏情绪往哪走”解释你的选择。"},
+  {t:"3.10 卡点：从“踩上”到“踩准”", b:["先定情绪，再定拍子；BPM 算一拍秒数/帧数。","自动踩点选“踩节拍1”；删多余标记，只留 8—12 个。","强拍给动作，弱拍给眼神/字幕，空拍留呼吸。","画面比拍点早 1—2 帧出现；动作落点在拍上。","不要每个鼓点都切；按 2/4/8 拍乐句。"], tip:"“卡点前”就要准备好：起势、推镜、riser、字幕关键词。"},
+  {t:"3.11 声音：让观众“听见”情绪", b:["对白 -6~-12dB；音乐 -18~-24；音效 -12~-18。","对白处音乐闪避 3—6dB；关键句可短暂静音。","音效 3—5 个/60 秒：转场/动作/情绪/环境/提示。","补环境音/房间音，掩盖剪辑点。","手机外放听一遍：对白清楚才算过。"], tip:"对白清晰永远第一；音乐再燃，台词听不清就是事故。"},
+  {t:"3.12 字幕：短剧的第二条命", b:["文本→智能字幕→识别字幕；有脚本用文稿匹配。","逐字校对：人名/数字/成语/口音/同音字。","每行 8—14 字，最多 2 行；底部 78%—85%。","白字+1 个强调色；描边 3—5px；动画 0.2—0.4 秒。","手机预览：不挡脸、不超安全区、和语音同步。"], tip:"字幕不是辅助，是静音观众的叙事线。"},
+  {t:"3.13 调色：统一、干净、有情绪", b:["一级：亮度/对比/高光/阴影/色温/色调/饱和度。","先选基准镜头，调好复制到同场景其他镜头。","二级：肤色/衣服/道具重点色；不要每个镜头都变。","LUT 强度 30—60%，不要叠两个 LUT。","手机 50% 亮度看一遍：太暗/太灰都要回调。"], tip:"短剧调色第一目标是统一，第二是干净，第三才是风格。"},
+  {t:"3.14 转场、特效、动画：少即是多", b:["90% 硬切；转场只在时间/空间/情绪变化时用。","叠化 0.3—0.8s；白闪 2—4 帧；黑场 0.3—0.5s。","推/拉/甩 0.2—0.4s；故障/抖动慎用。","关键帧：推镜 100→106→100；闪白 0→100→0。","不要每个切点都加 whoosh；音效比画面多会廉价。"], tip:"如果去掉这个转场/特效故事还成立，就删掉。"},
+  {t:"3.15 封面、标题、CTA：最后一公里", b:["封面：脸/冲突+6—10 字大字；手机尺寸可读。","标题：结果/反差/数字/疑问；具体，不空泛。","首帧：和封面同一个人/同一冲突；不黑屏。","CTA：搜索/看全集/关注；不虚假承诺。","做 3 版封面/标题，一次只改一个变量。"], tip:"封面负责被看见，标题负责被理解，首帧负责不后悔。"},
+  {t:"3.16 导出与交付", b:["1080P/30fps/H.264/8—12Mbps/MP4/AAC 320。","导出前 QC：前 3 秒、故事、对白、字幕、黑帧、结尾。","命名：项目_平台_版本_日期；不要“最终版2”。","交付：MP4+封面+工程/脚本+素材清单。","归档：工程/导出/脚本放同一个项目文件夹。"], tip:"105 分钟必须开始导出；留 5 分钟检查。"},
+  {t:"3.17 排障与手机版", b:["卡顿：代理/预览质量/复合片段/关其他软件。","音画不同步：转码固定帧率；分离音频手动对齐。","导入失败：H.265/10bit 转 H.264；导出失败换本地短路径。","字幕不同步：重新识别/手动调；颜色变：Rec.709/换播放器。","手机版应急：9:16/1080P/30fps；分段剪，及时导出。"], tip:"现场保命：每 10 分钟保存；导出前播全片；至少留 10 分钟。"}
+];
+
+const CHARACTERS = [
+  {name:"林晚", role:"女主 / 复仇者", tag:"冷", traits:["黑西装","红唇","低盘发"], prompt:"竖屏 9:16，中国都市短剧人物海报。28 岁女性林晚，清冷干练，鹅蛋脸，丹凤眼，黑长直发低盘发，红唇，黑色修身西装 + 白衬衫，小巧耳饰，手拿一份离婚协议，半身像，人物居中偏左，眼神平静看镜头。冷调青灰办公室背景，柔和侧逆光，肤色暖，浅景深，电影感写实摄影，高级质感，4K，无文字，无水印，无 logo。"},
+  {name:"顾沉", role:"前夫 / 被打脸", tag:"傲", traits:["金丝眼镜","深灰西装","冷笑"], prompt:"竖屏 9:16，同剧风格。32 岁男性顾沉，前夫/集团总裁，轮廓锋利，金丝眼镜，深灰三件套西装，白衬衫，领带松垮，单手插兜，嘴角冷笑，半身像，人物居中，眼神居高临下。冷调青灰会议室背景，侧逆光，浅景深，电影感写实摄影，高级质感，4K，无文字，无水印，无 logo。"},
+  {name:"林建国", role:"父亲 / 权力者", tag:"威", traits:["银发","中式立领","拐杖"], prompt:"竖屏 9:16，同剧风格。58 岁男性林建国，林氏集团董事长，银发后梳，中式立领深色西装，手扶红木拐杖，表情威严复杂，半身像，人物居中，眼神沉稳看镜头。深色书房背景，暖色台灯 + 冷调环境，电影感写实摄影，高级质感，4K，无文字，无水印，无 logo。"},
+  {name:"林诗诗", role:"继妹 / 反派", tag:"甜", traits:["浅粉裙","长卷发","珍珠耳饰"], prompt:"竖屏 9:16，同剧风格。25 岁女性林诗诗，继妹/反派，甜美心机，鹅蛋脸，长卷发，浅粉色连衣裙，珍珠耳饰，手拿红酒杯，嘴角无辜微笑，眼神算计，半身像，人物居中偏右。暖调宴会背景，柔光，浅景深，电影感写实摄影，高级质感，4K，无文字，无水印，无 logo。"}
+];
+
+const SHOTS = [
+  ["01","0—1.2","特写","离婚协议被甩到桌上，钢笔滚落","顾沉台词入","纸张/钢笔","首帧要有字/手"],
+  ["02","1.2—2.2","近景","顾沉冷笑，身体前倾","签了它……","低频","仰拍一点，压女主"],
+  ["03","2.2—3.0","特写","林晚签字，抬眼","希望明天……","笔尖/心跳","眼神要冷"],
+  ["04","3.0—5.5","中景","闪回：林晚熬夜改方案","旁白","键盘/空调","降饱和，冷调"],
+  ["05","5.5—8.0","近景","顾沉把合同递给林诗诗","旁白","纸张/笑声","林晚在景深处"],
+  ["06","8.0—10.0","中景","庆功宴碰杯，林晚在角落","旁白","碰杯/音乐","对比：暖 vs 冷"],
+  ["07","10—12.5","全景","暴雨，林晚拖行李箱离开","旁白","雨/雷","广角，孤立"],
+  ["08","12.5—15","中景","顾家宴会举杯；她回头看一眼","旁白","雨/笑","别拍太多，1 个眼神够"],
+  ["09","15—18","特写","手机屏幕亮；她接电话","林总，董事会……","电话/雨","手要稳"],
+  ["10","18—20","全景","会议室门开，林晚走入，众人起立","众人：林总好","高跟鞋/椅子","仰拍，权力反转"],
+  ["11","20—22","中景","顾沉愣住，站起来","你怎么会……","椅子","反应镜头"],
+  ["12","22—25","近景","林晚把文件推到桌上","现在，是我说了算","文件/鼓点","推镜 105%"],
+  ["13","25—28","双人","顾沉翻文件，林晚坐下","你疯了？/疯的是……","纸张","过肩，轴线一致"],
+  ["14","28—31","中景","林诗诗插话，被保安请出","姐姐……/保安……","椅子/脚步","别拍太长"],
+  ["15","31—36","中景","林建国拄拐出现","晚晚，爸爸错了","拐杖","低角度，权威"],
+  ["16","36—40","近景","林晚转身，父女对视","林董，公事公办","弦乐","眼神戏"],
+  ["17","40—45","近景","顾沉跪下，拉她的手","再给我一次机会","膝盖/静音","先静音再台词"],
+  ["18","45—48","特写","林晚俯身，抽回手","机会？你配吗？","呼吸/impact","全片最狠一句"],
+  ["19","48—60","黑场/字幕","片名/下集预告/背影","旁白","音乐收尾","不要拖，留白"]
+];
+
+
+<!-- ===== data2.js ===== -->
+const QA = [
+  {q:"请做一个自我介绍。", i:"表达是否清楚；经历是否匹配；有没有证据。", f:"定位 + 一个作品证据 + 一个方法 + 为什么来。", p:["定位：我是“编导+剪辑+AI”的短视频内容人。","证据：最近做了一条 60 秒短剧推广，前 3 秒用离婚协议+净身出户做钩子，3 秒完播 XX%。","方法：拆解爆款，建了钩子库、卡点模板、豆包角色提示词库。","动机：我想对一条内容的完播和转化负责，而不只是把画面剪好看。"], g:"我不只是会剪，我能独立把一条片子从选题做到数据复盘。"},
+  {q:"你为什么想做 AI 视频短剧生成师？", i:"你是跟风，还是理解岗位；能不能接受一个人一部剧。", f:"行业判断 + 个人匹配 + 长期意愿。", p:["AI 降低制作门槛，但判断力更值钱；选题、顺序、节奏、情绪仍要人来定。","一个人一部剧，正好是我喜欢的工作方式：从选题到成片自己做主。","我享受把复杂故事压成 3 秒钩子、60 秒情绪过山车的过程。","我愿意对完播和转化负责，而不是只交一条“好看”的片子。"], g:"AI 是手，判断力是脑子；我想做那个做判断的人。"},
+  {q:"你平时用什么 AI 工具？工作流是什么？", i:"你是真在用，还是只会说工具名；AI 在流程里的位置。", f:"人定方向 + AI 做素材 + 人做选择。", p:["选题/拆小说：豆包/DeepSeek 提炼冲突、写 3 版钩子。","角色/场景：豆包生成；先定风格基准，再用统一后缀/参考图保持一致。","分镜：我自己排；景别和节奏不能交给 AI。","配音：剪映朗读，拆句、调停顿；剪辑/字幕/调色/导出在剪映完成。"], g:"AI 省的是找素材的时间，故事、顺序、情绪、数据还是我来判断。"},
+  {q:"给你一本小说，你怎么判断它能不能爆？", i:"你有没有选题标准，还是凭感觉。", f:"三看一测：高概念、前 3 章冲突、改编成本；测 3 个开头。", p:["看标题/简介：一句话能不能说清？有没有高概念？","看前 3 章：主角有没有目标、反派是否可恨、冲突是否具体。","看改编成本：人物/场景是否集中、有没有强对话。","测 3 个前 3 秒：3 个都抓不住人，这本就不适合做视频。"], g:"我不看“文笔好不好”，我看“能不能在 3 秒内让人停下来”。"},
+  {q:"你怎么从小说里提炼片段？", i:"你会不会缩写，还是能找到“最大情绪差”。", f:"找最大情绪差 + 六拍重组 + 留钩子。", p:["不按时间顺序提炼，找“被压到最低”和“反转打脸”两个点。","用六拍重组：钩子、处境、打压、反转、打脸、悬念。","能合并的角色合并，能删的支线删掉；前 3 秒不放背景。","结尾不总结，留一个新问题；标准是“让人想看下一集”。"], g:"提炼不是“讲全”，是“让人想看下一集”。"},
+  {q:"黄金 3 秒，你会怎么做？", i:"你有没有具体方法，还是只会说“要抓人”。", f:"定钩子类型 + 画面/字幕/声音三层 + 静音测试。", p:["先定钩子：冲突前置/结果先行/身份反差/悬念/视觉暴击/台词暴击。","画面：首帧给冲突/动作/脸；字幕：6—10 字说结果；声音：狠话/音效/低频。","静音看一遍，画面能看懂；闭眼听一遍，声音有情绪。","做 2—3 版开头，用 3 秒完播做小测试。"], g:"黄金 3 秒不是“快”，是“在观众决定划走前，给他一个留下的理由”。"},
+  {q:"完播率低，你怎么排查？", i:"你会不会看曲线、定位到秒。", f:"按流失位置分 0—3/3—10/10—30/30—50/结尾。", p:["0—3 秒掉：查钩子/首帧/字幕；3—10 秒掉：查背景交代是否太多。","10—30 秒掉：查中段有没有新信息、是否重复打压。","30—50 秒掉：查反转是否太晚/太弱。","结尾掉：查是不是开始总结、没有钩子；一次只改一个变量。"], g:"不要笼统说“再剪短点”，要定位到那一秒。", },
+  {q:"点击率低怎么办？", i:"你懂不懂封面/标题/首帧，以及 A/B 测试。", f:"拆三件套 + 3 版测试 + 一次只改一个变量。", p:["封面：脸/冲突 + 6—10 字大字；标题：结果/反差/问题；首帧：和封面一致。","做 3 版封面/标题，跑 24—48 小时看点击率和 3 秒完播。","点击高但转化低，说明标题党或内容与承接页不匹配。","回去改承诺，而不是继续加标题。"], g:"点击率不是越高越好，要看转化。"},
+  {q:"负责人说“卡点前要求很高”，你怎么理解？", i:"你懂不懂“卡点前”的预备，而不是只会自动踩点。", f:"拍点前：动作起势/镜头到位/音乐铺垫/字幕关键词。", p:["拍点前 2—4 帧让动作起势，落点正好在拍上。","镜头在拍点前已经推到位；音乐有 riser/铺垫；字幕提前 0.5 秒。","强拍给动作，弱拍给眼神/字幕，空拍留呼吸。","按 2/4/8 拍乐句，不要每个鼓点都切。"], g:"拍点落下时，观众看到的是“结果”，不是“刚开始”。"},
+  {q:"你怎么用镜头语言服务叙事？", i:"你会不会用景别/角度/反应镜头，而不是背定义。", f:"先定情绪走向 + 景别递进 + 角度/反应。", p:["先问“这场戏情绪往哪走”：压抑→反转→释放。","门开用全景，让观众看到众人起立；切顾沉中景愣住；再切林晚近景/微仰拍。","同一句“你怎么会在这里”，俯拍是审问，仰拍是威胁。","反应镜头让观众看到“谁占上风”，比台词更有效。"], g:"镜头语言不是炫技，是让观众不用台词也能感到权力变化。"},
+  {q:"一个人一部剧，你怎么排期？", i:"你会不会项目管理，还是只会熬夜赶。", f:"倒排 + 模块化 + 时间盒 + 检查清单。", p:["先定发布日，再定锁画面/锁声音/导出硬节点。","上午选题/脚本/配音；下午粗剪/精剪/包装；晚上导出/数据。","能模板化的都模板化：钩子库、卡点模板、字幕样式、封面模板、提示词库。","硬停止：60 分钟粗剪，90 分钟锁画面，105 分钟导出。"], g:"一个人一部剧，靠的不是熬夜，是流程和复用。"},
+  {q:"原片素材很差，怎么办？", i:"你会不会“救”，还是只会抱怨。", f:"先救故事，再救画面。", p:["减少正脸长镜头，多用反应/手部/道具/空镜。","推近 105—115% 重新构图；用声音桥/J-cut 盖剪辑点。","用字幕卡交代时间/关系；调色统一但不过度滤镜。","素材不够就缩到 30—45 秒，保证完整，不硬拖。"], g:"完成度优先；短而完整，比长而空好。"},
+  {q:"豆包生成的 4 个人物不一致，怎么办？", i:"你有没有方法，而不是“多抽几次”。", f:"设定表 + 统一后缀 + 参考图 + 后期统一。", p:["角色设定表：发型/服装/配饰/气质写成固定标签。","每个提示词尾部加同一段风格后缀；用第一张满意的图做参考。","保持同样构图/光线/景别；后期统一色温/对比/颗粒。","接受“神似”，用服装/发型/气质做识别，不硬追求同一张脸。"], g:"先保证四个人像同一部剧，再保证单张好看。"},
+  {q:"版权/合规，你注意什么？", i:"你有没有风险意识；公司能不能放心把素材交给你。", f:"原片/小说/音乐/字体/AI 肖像/平台标识。", p:["优先用公司授权/平台商用库；保留来源记录。","AI 人物不碰真实明星/公众人物肖像；不用真人照片换脸。","按平台/法规要求标注 AI 生成内容。","封面/标题不虚假承诺；不去水印、不搬运。"], g:"来源不清的素材，我宁可不用。"},
+  {q:"最近你在拆解什么作品？", i:"你的审美/网感；会不会结构分析。", f:"选一类，拆钩子/六拍/反转/结尾/封面。", p:["最近拆“离婚+身份反转”这一类。","前 3 秒不交代背景，直接上离婚协议/赶出门/耳光。","10—25 秒补具体打压，让观众站队；30 秒给身份反转。","结尾不总结，直接抛下一集危机；封面用“结果先行”。"], g:"我学到的不是某个桥段，是“先让观众站队，再给反转”的顺序。"},
+  {q:"你的缺点是什么？", i:"有没有自知之明；缺点会不会影响交付。", f:"真实缺点 + 正在用的方法 + 结果。", p:["我有时在画面上过度打磨，影响交付。","现在设“硬停止”：60 分钟锁故事，90 分钟锁画面，剩下只做声音/字幕。","用检查清单避免因为细节影响整体。","这个岗位是一个人一部剧，所以我现在更看重稳定交付。"], g:"我不追求单条完美，我追求每条都能按时交付。"},
+  {q:"你能接受高强度/改稿吗？", i:"会不会情绪化；能不能沟通。", f:"接受 + 用方法减少无效返工。", p:["可以，我做内容已经习惯快节奏和改稿。","接需求确认目标/平台/时长/优先级；改稿一次只改一个方向。","版本命名清楚，不覆盖；意见冲突时先按对方方向做一版，再用数据/对比说明。","我不怕改，怕的是不知道为什么要改。"], g:"我用版本管理和需求确认，减少无效返工。"},
+  {q:"期望薪资是多少？", i:"有没有市场认知；会不会一开口就谈崩。", f:"先问结构，再给区间。", p:["先了解职责边界、绩效结构、试用期考核。","参考当地同岗位水平，结合我能独立交付和作品数据，期望 XX—XXK。","如果底薪有空间、绩效/提成清晰，我愿意谈总包。","我也想了解转正后的成长路径。"], g:"我看总包和成长，不只看月薪。"},
+  {q:"你还有什么问题？", i:"有没有思考；是不是真的想来。", f:"问业务/指标/流程/成长，不问八卦。", p:["这个岗位的核心指标是什么？3 秒/完播/点击/转化各占多重？","我接手的是成熟账号还是新号？有编导/运营配合吗？","公司提供原片/小说/音乐/字体授权库和 AI 工具预算吗？","试用期考核/转正路径是什么？"], g:"我想知道怎么把事做好，而不是只想知道待遇。"},
+  {q:"如果现场让你改一版，你会怎么改？", i:"压力下有没有结构；会不会盲目服从。", f:"先问改哪一项 + 一次只改一个变量。", p:["先问：是前 3 秒不够抓人、故事不清楚，还是节奏拖？","前 3 秒：换钩子，不动中段；节奏：删废镜头/提前反转，不动故事。","画面：先统一色温/字幕，不动剪辑。","改完立刻播一遍，确认没有把原来的优点改掉。"], g:"一次只改一个变量，改完用对比说话。"},
+  {q:"如果我们不录用你，你会怎么办？", i:"抗压和复盘能力。", f:"遗憾 + 问反馈 + 回去重做。", p:["会有点遗憾，但先问一句：今天最需要提升的是哪一项？","是前 3 秒、节奏，还是画面？","回去按这个反馈重做一版，再对比。","即使这次不合适，我也希望知道差距在哪，下次能补上。"], g:"我把每次面试都当成一次免费复盘。"}
+];
+
+
+<!-- ===== data3.js ===== -->
+const QUIZ = [
+  {q:"3 秒完播率主要衡量什么？", o:["开头留存能力","点击转化","画面清晰度","音乐版权"], a:0, k:"数据", x:"3 秒完播率看的是开头能不能留住人；低就先查钩子、首帧、字幕。"},
+  {q:"黄金 3 秒的本质是什么？", o:["特效数量","在观众决定划走前给出留下的理由","片头 logo","画面分辨率"], a:1, k:"叙事", x:"黄金 3 秒不是“快”，是信息密度和留人理由。"},
+  {q:"60 秒短剧推广最稳的结构是？", o:["背景—人物—冲突—总结","钩子—处境—打压—反转—打脸—悬念","起承转合—结尾升华","先片头再正片"], a:1, k:"叙事", x:"六拍结构能在 60 秒内完成一次情绪过山车，并留下下一集钩子。"},
+  {q:"J-cut 指的是？", o:["下一场声音先入，画面后切","上一场声音延续","画面先切、声音后入","两个画面叠化"], a:0, k:"剪辑", x:"J-cut 让转场更自然，例：先听到下一句台词，再切到说话人。"},
+  {q:"L-cut 指的是？", o:["下一场声音先入","上一场声音延续到下一场画面","画面淡出","音效提前"], a:1, k:"剪辑", x:"L-cut 让情绪延续，例：她的台词延续到男主落泪的画面。"},
+  {q:"180 度轴线的作用是？", o:["保持人物关系/方向不乱","让画面更亮","增加特效","提高码率"], a:0, k:"剪辑", x:"两个人对话时，镜头要保持在线的一侧，否则关系/方向会乱。"},
+  {q:"30 度法则指的是？", o:["相邻镜头机位至少差 30 度","镜头必须转 30 度","人物走 30 步","音乐快 30%"], a:0, k:"剪辑", x:"同一主体相邻镜头角度太近，会像跳切；至少差 30 度。"},
+  {q:"卡点的强拍更适合放什么？", o:["普通对话","耳光/摔门/下跪","空镜","字幕标点"], a:1, k:"剪辑", x:"强拍给动作/情绪爆点；弱拍给眼神/字幕；空拍留呼吸。"},
+  {q:"120 BPM、30fps，一拍大约多少帧？", o:["15","20","30","10"], a:0, k:"剪辑", x:"一拍秒数 = 60 ÷ 120 = 0.5 秒；30fps × 0.5 = 15 帧。"},
+  {q:"对白与音乐的音量关系，正确的是？", o:["音乐盖过对白","对白清楚，音乐在对白处闪避","两者一样大","对白静音"], a:1, k:"声音", x:"对白第一；音乐在对白处降 3—6dB，关键句可短暂静音。"},
+  {q:"竖屏字幕每行建议多少字？", o:["8—14 字","20—30 字","1 个字","越多越好"], a:0, k:"交付", x:"每行 8—14 字，最多 2 行；手机可读性优先。"},
+  {q:"9:16 底部安全区保守留多少？", o:["0—50px","250—350px","600px","不需要"], a:1, k:"交付", x:"底部有文案/购物车/评论/进度条，保守留 250—350px。"},
+  {q:"导出最稳的参数是？", o:["4K/60fps/极高码率","1080P/30fps/H.264/8—12Mbps","720P/15fps","GIF"], a:1, k:"交付", x:"平台会二次压缩；1080P/30fps/H.264/8—12Mbps 足够稳。"},
+  {q:"封面最重要的是？", o:["风景","脸/冲突 + 6—10 字大字","logo","全黑"], a:1, k:"交付", x:"封面要在信息流里被看见：人脸、冲突、强对比、少字。"},
+  {q:"完播率在 0—3 秒掉，先改什么？", o:["结尾","钩子/首帧/字幕","调色","片尾字幕"], a:1, k:"数据", x:"0—3 秒掉，先查开头；换钩子、前置冲突、去掉片头。"},
+  {q:"点击高、转化低，最可能的原因是？", o:["内容与承接页不匹配/标题党","画质太高","音乐太好","字幕太少"], a:0, k:"数据", x:"点击高但转化低，说明承诺和内容/承接页不一致；要改承诺。"},
+  {q:"AI 人物一致性最有效的方法是？", o:["每次随机抽卡","统一风格后缀 + 角色设定表 + 参考图","换工具","加滤镜"], a:1, k:"AI", x:"一致性靠设定表、统一后缀、参考图、统一构图和后期调色。"},
+  {q:"AI 生成内容商用前，最重要的是？", o:["直接发","确认版权/肖像/平台 AI 标识","去掉水印","加音乐"], a:1, k:"AI", x:"商用前确认原片/小说/音乐/字体授权、肖像权，并按要求标注 AI 内容。"},
+  {q:"测试 1 的 4 人物图，评委最想看什么？", o:["单张好看","四个人像同一部剧、设定清楚","背景复杂","字体多"], a:1, k:"AI", x:"4 人物看的是设定、风格统一、审美；不是单张网红脸。"},
+  {q:"2 小时试剪的第一优先级是？", o:["炫技","完整交付","3 分钟长片","复杂转场"], a:1, k:"试剪", x:"完成度大于完美度；45—75 秒完整成片胜过 3 分钟半成品。"},
+  {q:"试剪建议的成片长度是？", o:["45—75 秒","3—5 分钟","10 秒","越长越好"], a:0, k:"试剪", x:"2 小时内能做完，也符合短剧切片/推文的节奏。"},
+  {q:"“卡点前”要求指的是？", o:["到了鼓点才切","拍点前动作/镜头/音乐/字幕已准备好","先加特效","先导出"], a:1, k:"剪辑", x:"动作起势、镜头推近、音乐 riser、字幕关键词，都要在拍点前准备好。"},
+  {q:"反应镜头的主要作用是？", o:["展示环境","让观众看到听者的情绪","提高码率","替代台词"], a:1, k:"剪辑", x:"对话/打脸的情绪靠反应镜头；不要一直拍说话人。"},
+  {q:"匹配剪辑指的是？", o:["用相似形状/运动/颜色/声音连接两个镜头","随机转场","把音乐对齐","调色"], a:0, k:"剪辑", x:"匹配剪辑能完成转场/隐喻，但不要为了匹配牺牲故事。"},
+  {q:"蒙太奇最重要的是？", o:["镜头多","每个镜头给不同信息，压缩时间","全用慢动作","全用特效"], a:1, k:"剪辑", x:"蒙太奇不是堆镜头；每个镜头必须提供时间/行动/阻力/结果/情绪等不同信息。"},
+  {q:"音乐闪避（ducking）指的是？", o:["对白时降低音乐","把音乐关掉","提高对白音调","加回声"], a:0, k:"声音", x:"对白出现时音乐自动降 3—6dB；关键句可短暂静音。"},
+  {q:"LUFS 是什么单位？", o:["响度","帧率","分辨率","码率"], a:0, k:"声音", x:"LUFS 是响度单位；平台常用 -14 LUFS 左右，true peak 不超过 -1dBTP。"},
+  {q:"A/B 测试的正确做法是？", o:["一次改所有变量","一次只改一个变量","只看播放量","不看数据"], a:1, k:"数据", x:"一次只改一个变量，跑 24—48 小时，才能知道哪个改动有效。"},
+  {q:"素材很差时，第一反应应该是？", o:["先救故事，再用反应/空镜/声音桥","加滤镜","放弃","拉长"], a:0, k:"试剪", x:"先救故事，再救画面；素材不够就缩短，保证完整。"},
+  {q:"“一个人一部剧”最需要什么？", o:["等指令","独立交付 + 时间盒 + 检查清单","只会一个软件","不做复盘"], a:1, k:"试剪", x:"没有助手，必须独立交付、管理时间、自己检查。"}
+];
+
+const PLAN_DAYS = [
+  {d:"D1", title:"拆 20 条爆款", items:["拆 20 条同类爆款（钩子/六拍/反转/结尾）","填一张拆解表：前 3 秒、节拍、镜头、声音、封面","写 1 页拆解笔记：我下一条能用什么"]},
+  {d:"D2", title:"剪映基础 + 30 秒卡点", items:["新建 9:16/1080×1920/30fps 项目","剪 30 秒卡点：8—12 个重拍，强拍给动作","导出 1080P，手机看一遍"]},
+  {d:"D3", title:"3 版前 3 秒", items:["同一个故事写 3 个开头：冲突/结果/身份反差","每个开头配画面+字幕+声音","静音测试：3 秒能不能看懂"]},
+  {d:"D4", title:"60 秒短剧（对白）", items:["选一条 1—3 分钟原片，写一句话故事+六拍","粗剪→精剪：J/L cut、反应镜头、卡点","加字幕/音乐/音效，导出 v1"]},
+  {d:"D5", title:"60 秒推文（AI 配音+图）", items:["写 240—300 字旁白；拆句配音","用豆包生成 4—6 张画面，匹配台词","剪成 60 秒，加 CTA"]},
+  {d:"D6", title:"声音/字幕/调色/封面", items:["对白闪避、3—5 个音效、环境音","字幕校对：8—14 字/行，不挡脸","统一色温；做 3 版封面"]},
+  {d:"D7", title:"2 小时全真模拟", items:["严格计时 120 分钟，用陌生素材","按作战表：60 分钟粗剪/90 分钟锁画面/105 分钟导出","写 1 页复盘：3 个做得好的/3 个要改的"]}
+];
+
+const TEST_PHASES = [
+  {s:0, e:10, t:"培训 / 提问", d:"听懂要求，问 3—5 个关键问题", h:"复述要求再动手"},
+  {s:10, e:20, t:"看片 / 定故事", d:"一句话故事 + 六拍，选 3 个最强镜头", h:"20 分钟必须定故事"},
+  {s:20, e:35, t:"脚本 / 节拍", d:"旁白/对白排序，前 3 秒定稿", h:"总长 ≤75 秒"},
+  {s:35, e:70, t:"粗剪", d:"把六拍接成一条完整故事", h:"60 分钟必须有粗剪"},
+  {s:70, e:90, t:"精剪 / 卡点", d:"J/L cut、反应镜头、8—12 个重拍", h:"90 分钟锁画面"},
+  {s:90, e:105, t:"声音 / 字幕 / 调色", d:"对白清楚、字幕无错、色温统一", h:"105 分钟必须导出"},
+  {s:105, e:120, t:"导出 / QC / 交付", d:"导出、检查、30 秒阐述", h:"先交付，再完美"}
+];
+
+const EMERGENCY_PHASES = [
+  {s:0, e:2, t:"看片 / 定故事", d:"一句话 + 六拍；选 8 个镜头", h:"2 分钟必须定"},
+  {s:2, e:4, t:"脚本 / 钩子", d:"前 3 秒定稿；删到 45 秒", h:"4 分钟锁脚本"},
+  {s:4, e:8, t:"粗剪", d:"钩子—打压—反转—打脸—结尾", h:"8 分钟必须有粗剪"},
+  {s:8, e:11, t:"精剪 / 字幕 / 声音", d:"硬切、字幕校对、1 首 BGM", h:"11 分钟锁画面"},
+  {s:11, e:14, t:"导出 / QC", d:"1080P 导出；检查前 3 秒/结尾", h:"14 分钟必须导出"},
+  {s:14, e:15, t:"交付", d:"30 秒讲清选择", h:"先交，再完美"}
+];
+
+const PRE_CHECKS = [
+  "作品集能在手机上 10 秒内打开；二维码/链接可访问。",
+  "电脑充满电，带充电器、鼠标、耳机、转接头。",
+  "剪映已登录，版本稳定；提前新建空白项目测试。",
+  "准备本地 BGM/音效包，防止现场没网或音乐库受限。",
+  "准备 4 个角色提示词，豆包账号可用。",
+  "把 2 小时作战表打印或存在手机里。",
+  "自我介绍练到 60—75 秒，不背稿感。",
+  "准备 5 个反问，不问加班、不问八卦。",
+  "作品集每条都能说出：目标、选择、结果、复盘。",
+  "面试当天提前 20 分钟到，测试座位、网络、电源。"
+];
+
+const TEST_CHECKS = [
+  "前 3 秒有钩子，不黑屏/不 logo。",
+  "故事一句话能说清，六拍完整。",
+  "至少 2 处 J/L cut；3 个反应镜头。",
+  "8—12 个卡点，没有每拍都切。",
+  "对白清楚，音乐闪避，无爆音。",
+  "字幕无错别字、不挡脸、不超安全区。",
+  "同场景色温/曝光一致。",
+  "结尾有钩子/CTA，不突然黑屏。",
+  "导出 1080P/30fps；手机可播。",
+  "文件命名清楚；工程/封面备份。",
+  "封面手机尺寸可读；和内容一致。",
+  "交付话术能 30 秒讲清。"
+];
+
+
+<!-- ===== app_core.js ===== -->
+/* ================= 工具 ================= */
+"use strict";
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => Array.from(document.querySelectorAll(s));
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("aidrama_" + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("aidrama_" + k, JSON.stringify(v)); } catch (e) {} },
+  del(k) { try { localStorage.removeItem("aidrama_" + k); } catch (e) {} }
+};
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function shuffle(list) {
+  const a = list.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function setText(id, val) { const el = document.getElementById(id); if (el) el.textContent = val; }
+
+async function copyText(text, btn) {
+  let ok = false;
+  try {
+    await navigator.clipboard.writeText(text);
+    ok = true;
+  } catch (e) {
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      ok = true;
+    } catch (e2) { ok = false; }
+  }
+  if (btn) {
+    const old = btn.textContent;
+    btn.textContent = ok ? "✅ 已复制" : "复制失败，请手动选择";
+    setTimeout(() => { btn.textContent = old; }, 1500);
+  }
+  return ok;
+}
+
+/* ================= 标签切换 ================= */
+const navEl = document.getElementById("mainNav");
+function syncNavHeight() {
+  if (navEl) document.documentElement.style.setProperty("--navh", navEl.offsetHeight + "px");
+}
+function activateTab(name, opts = {}) {
+  const btn = document.querySelector('nav button[data-tab="' + name + '"]');
+  const sec = document.getElementById("tab-" + name);
+  if (!btn || !sec) return;
+  $$("nav button").forEach((x) => { x.classList.remove("active"); x.removeAttribute("aria-selected"); });
+  btn.classList.add("active");
+  btn.setAttribute("aria-selected", "true");
+  $$(".tab").forEach((t) => t.classList.remove("active"));
+  sec.classList.add("active");
+  if (!opts.silent) {
+    store.set("tab", name);
+    try { history.replaceState(null, "", "#" + name); } catch (e) { location.hash = name; }
+  }
+  if (!opts.keepScroll) window.scrollTo(0, 0);
+  if (navEl && navEl.scrollWidth > navEl.clientWidth + 4) {
+    try { navEl.scrollTo({ left: btn.offsetLeft - (navEl.clientWidth - btn.offsetWidth) / 2, behavior: "smooth" }); } catch (e) {}
+  }
+  syncNavHeight();
+}
+navEl.addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-tab]");
+  if (b) activateTab(b.dataset.tab);
+});
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-go]");
+  if (b) activateTab(b.dataset.go);
+});
+function initTab() {
+  try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (e) {}
+  const hash = (location.hash || "").replace("#", "");
+  let start = hash && document.getElementById("tab-" + hash) ? hash : store.get("tab", "start");
+  if (!start || !document.getElementById("tab-" + start)) start = "start";
+  activateTab(start, { silent: true });
+}
+
+/* ================= 术语 ================= */
+const termGrid = $("#termGrid");
+let curCat = "全部";
+let weakTerms = store.get("termWeak", {});
+function weakCount() { return Object.keys(weakTerms).filter((k) => weakTerms[k] && TERMS[+k]).length; }
+function saveWeak() { store.set("termWeak", weakTerms); }
+function refreshWeakUI() {
+  const n = weakCount();
+  const chip = document.getElementById("weakChip");
+  if (chip) chip.textContent = "📕 生词本（" + n + "）";
+  const stat = document.getElementById("drillStat");
+  if (stat) stat.textContent = n ? "生词本 " + n + " 条，建议用「只抽生词本」过一遍" : "抽查时点「不熟」就会收进生词本";
+}
+function termMatch(t, kw) {
+  if (!kw) return true;
+  return t.t.toLowerCase().includes(kw) || t.e.toLowerCase().includes(kw) || t.s.includes(kw) || t.w.includes(kw);
+}
+function renderTerms() {
+  const kw = ($("#termSearch").value || "").trim().toLowerCase();
+  const rows = TERMS.map((t, i) => ({ t, i })).filter((x) => {
+    if (curCat === "生词本") { if (!weakTerms[x.i]) return false; }
+    else if (curCat !== "全部" && x.t.c !== curCat) return false;
+    return termMatch(x.t, kw);
+  });
+  let html = rows.map((x) => {
+    const t = x.t, on = !!weakTerms[x.i];
+    return '<div class="card term"><div class="t">' + esc(t.t) + '<span class="badge">' + esc(t.c) + '</span></div>' +
+      '<div class="e">' + esc(t.e) + '</div><div class="s">' + esc(t.s) + '</div>' +
+      '<div class="w">🎯 面试要点：' + esc(t.w) + '</div>' +
+      '<button class="term-card-btn" data-ti="' + x.i + '" style="margin-top:8px;border:1px solid var(--line);background:#fff;color:' + (on ? "var(--amber)" : "var(--muted)") + ';border-radius:8px;padding:3px 10px;font-size:11.5px;cursor:pointer">' +
+      (on ? "📕 已在生词本（点击移除）" : "＋ 加入生词本") + '</button></div>';
+  }).join("");
+  if (!html) {
+    html = '<div class="card muted" style="grid-column:1/-1;text-align:center;padding:28px">' +
+      (curCat === "生词本" ? "生词本还是空的：点「🎴 卡片抽查」，遇到不熟的词点「📕 不熟」就会收进来。" : "没有找到匹配的术语") + '</div>';
+  }
+  termGrid.innerHTML = html;
+  refreshWeakUI();
+}
+$("#termSearch").addEventListener("input", renderTerms);
+$$("#tab-terms .chip").forEach((c) => {
+  c.addEventListener("click", () => {
+    $$("#tab-terms .chip").forEach((x) => x.classList.remove("active"));
+    c.classList.add("active");
+    curCat = c.dataset.cat;
+    renderTerms();
+  });
+});
+termGrid.addEventListener("click", (e) => {
+  const b = e.target.closest(".term-card-btn");
+  if (!b) return;
+  const i = +b.dataset.ti;
+  if (weakTerms[i]) delete weakTerms[i]; else weakTerms[i] = true;
+  saveWeak(); renderTerms();
+});
+
+/* ---- 卡片抽查 ---- */
+let drillPool = [], drillPos = 0, drillRevealed = false, drillOpen = false;
+function buildPool() {
+  const only = document.getElementById("drillWeakOnly").checked;
+  const idx = [];
+  for (let i = 0; i < TERMS.length; i++) if (!only || weakTerms[i]) idx.push(i);
+  drillPool = shuffle(idx); drillPos = 0; drillRevealed = false;
+  return drillPool.length;
+}
+function startDrill() {
+  if (!buildPool()) { alert("生词本里还没有词。先取消勾选「只抽生词本」，用全部术语抽查吧。"); return; }
+  drillOpen = true;
+  $("#drillCard").style.display = "block";
+  renderDrill();
+  try { $("#drillCard").scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) { $("#drillCard").scrollIntoView(); }
+}
+function closeDrill() { drillOpen = false; $("#drillCard").style.display = "none"; }
+function endDrill() {
+  $("#drillProgress").textContent = "本轮完成";
+  $("#drillBody").innerHTML = '<div class="drill-term" style="font-size:20px">🎉 这一轮 ' + drillPool.length + ' 张抽完了</div>' +
+    '<div class="drill-hint">生词本现在有 <b>' + weakCount() + '</b> 条。明天先抽「只抽生词本」，把不熟的清干净。</div>' +
+    '<div class="drill-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn btn-p" id="drillAgain">🔁 再来一轮</button><button class="btn btn-o" id="drillClose2">关闭</button></div>';
+  document.getElementById("drillAgain").addEventListener("click", startDrill);
+  document.getElementById("drillClose2").addEventListener("click", closeDrill);
+  refreshWeakUI();
+}
+function renderDrill() {
+  if (drillPos >= drillPool.length) { endDrill(); return; }
+  const i = drillPool[drillPos], t = TERMS[i];
+  $("#drillProgress").textContent = (drillPos + 1) + " / " + drillPool.length + (weakTerms[i] ? " · 生词本" : "");
+  $("#drillBody").innerHTML = '<div class="drill-term" style="font-size:30px;font-weight:800;color:var(--navy);line-height:1.3">' + esc(t.t) + '</div>' +
+    '<div class="drill-hint" style="font-size:13px;color:var(--muted);margin-top:6px">先在心里讲一遍：它是什么？面试里怎么用一句话说清楚？</div>' +
+    '<div class="drill-answer ' + (drillRevealed ? "show" : "") + '" style="' + (drillRevealed ? "display:block" : "display:none") + ';margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)">' +
+    '<div class="e" style="color:var(--sky);font-size:13px;margin-bottom:6px">' + esc(t.e) + '</div>' +
+    '<div class="s" style="font-size:14px;line-height:1.8">' + esc(t.s) + '</div>' +
+    '<div class="w" style="margin-top:10px;font-size:13px;color:var(--amber);background:var(--amberbg);border-radius:8px;padding:8px 12px">🎯 面试要点：' + esc(t.w) + '</div></div>' +
+    '<div class="drill-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">' +
+    (drillRevealed ? "" : '<button class="btn btn-p" id="drillReveal">👁 显示答案</button>') +
+    '<button class="btn btn-a" id="drillWeak">📕 不熟</button><button class="btn btn-g" id="drillKnown">✅ 认识</button><button class="btn btn-o" id="drillNext">下一张 →</button></div>';
+  const rv = document.getElementById("drillReveal");
+  if (rv) rv.addEventListener("click", () => { drillRevealed = true; renderDrill(); });
+  document.getElementById("drillWeak").addEventListener("click", () => drillMark(false));
+  document.getElementById("drillKnown").addEventListener("click", () => drillMark(true));
+  document.getElementById("drillNext").addEventListener("click", () => { drillRevealed = false; drillPos++; renderDrill(); });
+}
+function drillMark(known) {
+  const i = drillPool[drillPos];
+  if (known) delete weakTerms[i]; else weakTerms[i] = true;
+  saveWeak(); renderTerms(); drillRevealed = false; drillPos++; renderDrill();
+}
+$("#drillStart").addEventListener("click", startDrill);
+$("#drillClose").addEventListener("click", closeDrill);
+$("#drillWeakOnly").addEventListener("change", () => { if (drillOpen) startDrill(); });
+
+/* ================= 钩子库 ================= */
+function renderHooks() {
+  const list = shuffle(HOOKS).slice(0, 9);
+  $("#hookGrid").innerHTML = list.map((h) => '<div class="hook-card"><div class="k">' + esc(h.k) + '</div><div class="q">' + esc(h.q) + '</div><div class="n">适合：' + esc(h.n) + '</div></div>').join("");
+}
+$("#hookShuffle").addEventListener("click", renderHooks);
+
+/* ================= 剪映 17 步 ================= */
+function renderEditSteps() {
+  $("#editSteps").innerHTML = EDIT_STEPS.map((s, i) => {
+    const items = s.b.map((x) => "<li>" + esc(x) + "</li>").join("");
+    return '<div class="card acc" data-i="' + i + '"><div class="acc-head">' + esc(s.t) + '<span style="color:var(--muted);font-weight:normal;font-size:12.5px">▾</span></div>' +
+      '<div class="acc-body"><ul style="margin:8px 0 0 18px;font-size:13.4px">' + items + '</ul><div class="tip">💡 ' + esc(s.tip) + '</div></div></div>';
+  }).join("");
+}
+
+/* ================= 人物卡 ================= */
+function renderChars() {
+  $("#charGrid").innerHTML = CHARACTERS.map((c, i) => {
+    const traits = c.traits.map((x) => "<span>" + esc(x) + "</span>").join("");
+    return '<div class="card char-card"><div class="char-head"><span class="char-name">' + esc(c.name) + '</span><span class="badge coral">' + esc(c.tag) + '</span><span class="char-role">' + esc(c.role) + '</span></div>' +
+      '<div class="char-traits">' + traits + '</div>' +
+      '<div class="prompt-box" id="charPrompt' + i + '">' + esc(c.prompt) + '</div>' +
+      '<button class="copy-btn" data-copy-target="charPrompt' + i + '">📋 复制提示词</button></div>';
+  }).join("");
+}
+
+/* ================= 提示词生成器 ================= */
+const PG_DEFAULTS = {
+  pgName: "林晚", pgAge: "28 岁", pgGender: "女性", pgIdentity: "集团新任总裁",
+  pgLook: "清冷干练，鹅蛋脸，丹凤眼，黑长直低盘发，红唇",
+  pgOutfit: "黑色修身西装 + 白衬衫，手拿离婚协议",
+  pgScene: "冷调青灰办公室，窗外城市夜景", pgMood: "克制、轻蔑，眼神平静看镜头",
+  pgShot: "半身像，人物居中偏左"
+};
+function fillPG() { Object.keys(PG_DEFAULTS).forEach((k) => { const el = document.getElementById(k); if (el) el.value = PG_DEFAULTS[k]; }); }
+function buildPG() {
+  const name = $("#pgName").value.trim() || "角色";
+  const age = $("#pgAge").value.trim() || "28 岁";
+  const gender = $("#pgGender").value;
+  const identity = $("#pgIdentity").value.trim();
+  const look = $("#pgLook").value.trim();
+  const outfit = $("#pgOutfit").value.trim();
+  const scene = $("#pgScene").value.trim();
+  const mood = $("#pgMood").value.trim();
+  const shot = $("#pgShot").value;
+  const style = "竖屏 9:16，中国都市短剧人物海报，冷调青灰 + 暖肤，柔和侧逆光，浅景深，电影感写实摄影，高级质感，4K，无文字，无水印，无 logo。";
+  const text = "竖屏 9:16，中国都市短剧人物海报。" + age + gender + name + "，" + (identity ? identity + "，" : "") +
+    (look ? look + "，" : "") + (outfit ? outfit + "，" : "") + (mood ? mood + "，" : "") +
+    shot + "，看镜头。" + (scene ? scene + "背景，" : "") + "柔和侧逆光，肤色暖，浅景深，电影感写实摄影，高级质感，4K，无文字，无水印，无 logo。";
+  $("#pgOut").textContent = text;
+  return text;
+}
+$("#pgMake").addEventListener("click", buildPG);
+$("#pgCopy").addEventListener("click", (e) => copyText($("#pgOut").textContent, e.currentTarget));
+$("#pgReset").addEventListener("click", () => { fillPG(); buildPG(); });
+
+/* ================= 分镜表 ================= */
+function renderShots() {
+  $("#shotRows").innerHTML = SHOTS.map((r) => "<tr>" + r.map((x) => "<td>" + esc(x) + "</td>").join("") + "</tr>").join("");
+}
+
+/* ================= 复制按钮委托 ================= */
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-copy-target]");
+  if (!b) return;
+  const el = document.getElementById(b.dataset.copyTarget);
+  if (el) copyText(el.textContent, b);
+});
+
+
+<!-- ===== app_features.js ===== -->
+/* ================= 面试问答 ================= */
+function renderQA() {
+  $("#qaList").innerHTML = QA.map((q, i) => {
+    const pts = q.p.map((x) => "<li>" + esc(x) + "</li>").join("");
+    return '<div class="card qa" data-i="' + i + '"><div class="qa-q"><span>Q' + (i + 1) + '. ' + esc(q.q) + '</span><span class="chev">▾</span></div>' +
+      '<div class="qa-a"><p style="margin-top:10px"><span class="lbl lbl-i">考官意图</span><span class="muted">' + esc(q.i) + '</span></p>' +
+      '<p style="margin-top:8px"><span class="lbl lbl-f">答题框架</span><span class="muted">' + esc(q.f) + '</span></p>' +
+      '<p style="margin-top:8px"><span class="lbl lbl-p">参考要点</span></p><ul>' + pts + '</ul>' +
+      '<div class="quote">💬 金句收尾：' + esc(q.g) + '</div></div></div>';
+  }).join("");
+}
+
+/* ================= 模拟面试 ================= */
+let mTimerInt = null, mSeconds = 120;
+const mStatus = store.get("mock", {});
+function refreshMockStats() {
+  let a = 0, b = 0;
+  QA.forEach((_, i) => { if (mStatus[i] === "ok") a++; if (mStatus[i] === "rv") b++; });
+  setText("mMastered", a); setText("mReview", b); setText("mTodo", QA.length - a - b);
+  const bar = $("#mBar"); if (bar) bar.style.width = (a / QA.length * 100) + "%";
+}
+function mStopTimer() {
+  if (mTimerInt) { clearInterval(mTimerInt); mTimerInt = null; }
+  const t = $("#mockCard .mock-timer");
+  if (t) t.style.display = "none";
+}
+function mPick() {
+  const todo = [];
+  QA.forEach((_, i) => { if (!mStatus[i]) todo.push(i); });
+  const i = todo.length ? todo[Math.floor(Math.random() * todo.length)] : Math.floor(Math.random() * QA.length);
+  showMock(i);
+}
+function showMock(i) {
+  mStopTimer();
+  const q = QA[i];
+  let st = "";
+  if (mStatus[i] === "ok") st = '<span class="badge green">已掌握</span>';
+  else if (mStatus[i] === "rv") st = '<span class="badge amber">需复习</span>';
+  const pts = q.p.map((x) => "<li>" + esc(x) + "</li>").join("");
+  $("#mockCard").style.display = "block";
+  $("#mockCard").innerHTML = '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap"><div class="mock-q">Q' + (i + 1) + '. ' + esc(q.q) + '</div>' + st + '</div>' +
+    '<div id="mockA" style="display:none;margin-top:14px"><p><span class="lbl lbl-i">考官意图</span><span class="muted">' + esc(q.i) + '</span></p>' +
+    '<p style="margin-top:8px"><span class="lbl lbl-f">答题框架</span><span class="muted">' + esc(q.f) + '</span></p>' +
+    '<p style="margin-top:8px"><span class="lbl lbl-p">参考要点</span></p><ul style="margin-left:18px">' + pts + '</ul>' +
+    '<div class="quote">💬 金句收尾：' + esc(q.g) + '</div>' +
+    '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap"><button class="btn btn-g" data-mk="ok">✅ 已掌握</button><button class="btn btn-a" data-mk="rv">🔁 还需复习</button><button class="btn btn-o" data-mk="cl">🔄 重新抽题</button></div></div>' +
+    '<div class="muted" id="mockHint" style="margin-top:10px;font-size:12.5px">先自己开口说 60 秒，再点上面的「👁 显示参考答案」。</div>' +
+    '<div class="mock-timer" style="display:none">02:00</div>';
+  $$("#mockCard [data-mk]").forEach((b) => {
+    b.addEventListener("click", () => {
+      if (b.dataset.mk === "ok") { mStatus[i] = "ok"; store.set("mock", mStatus); refreshMockStats(); mPick(); }
+      else if (b.dataset.mk === "rv") { mStatus[i] = "rv"; store.set("mock", mStatus); refreshMockStats(); mPick(); }
+      else mPick();
+    });
+  });
+}
+$("#mNext").addEventListener("click", mPick);
+$("#mReveal").addEventListener("click", () => {
+  mStopTimer();
+  const a = $("#mockA"); if (a) a.style.display = "block";
+  const hint = $("#mockHint"); if (hint) hint.style.display = "none";
+});
+$("#mTimerBtn").addEventListener("click", () => {
+  mStopTimer();
+  if (!$("#mockCard .mock-timer")) mPick();
+  const t = $("#mockCard .mock-timer");
+  if (!t) return;
+  mSeconds = 120; t.style.display = "block"; t.classList.remove("timeup"); t.textContent = "02:00";
+  mTimerInt = setInterval(() => {
+    mSeconds--;
+    if (mSeconds <= 0) {
+      clearInterval(mTimerInt); mTimerInt = null;
+      t.classList.add("timeup"); t.textContent = "⏰ 时间到！先开口讲一遍，再点「显示参考答案」";
+      return;
+    }
+    const m = String(Math.floor(mSeconds / 60)).padStart(2, "0");
+    const s = String(mSeconds % 60).padStart(2, "0");
+    t.textContent = m + ":" + s;
+  }, 1000);
+});
+$("#mReset").addEventListener("click", () => {
+  if (!confirm("重置模拟面试的「已掌握/需复习」标记？")) return;
+  Object.keys(mStatus).forEach((k) => delete mStatus[k]);
+  store.set("mock", mStatus); refreshMockStats();
+});
+
+/* ================= 测验 ================= */
+let qzList = [], qzIdx = 0, qzScore = 0, qzWrong = [];
+let wrongBank = store.get("wrong", {});
+let topicStats = store.get("topicStats", {});
+function wrongCount() { return Object.keys(wrongBank).filter((k) => wrongBank[k] && QUIZ[+k]).length; }
+function refreshWrongUI() { setText("wrongCount", wrongCount()); }
+function saveWrongBank() { store.set("wrong", wrongBank); refreshWrongUI(); }
+function bumpTopic(k, ok) {
+  if (!k) return;
+  const s = topicStats[k] || { r: 0, w: 0 };
+  if (ok) s.r++; else s.w++;
+  topicStats[k] = s; store.set("topicStats", topicStats); renderTopics();
+}
+function topicAcc(k) { const s = topicStats[k]; if (!s) return -1; const t = s.r + s.w; return t ? s.r / t * 100 : -1; }
+function renderTopics() {
+  const el = $("#topicPanel"); if (!el) return;
+  const keys = Object.keys(topicStats).filter((k) => topicStats[k] && (topicStats[k].r + topicStats[k].w) > 0);
+  if (!keys.length) { el.innerHTML = ""; return; }
+  keys.sort((a, b) => topicAcc(a) - topicAcc(b));
+  const rows = keys.map((k) => {
+    const s = topicStats[k], tot = s.r + s.w, pct = Math.round(s.r / tot * 100);
+    const color = pct >= 80 ? "var(--green)" : (pct >= 60 ? "var(--sky)" : "var(--red)");
+    return '<div style="display:grid;grid-template-columns:92px 1fr 120px;gap:10px;align-items:center;margin-bottom:7px;font-size:12.5px"><span style="font-weight:600">' + esc(k) + '</span><span style="height:8px;background:var(--line);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:' + pct + '%;background:' + color + ';border-radius:99px"></i></span><span style="color:var(--muted);text-align:right">' + pct + '% · ' + s.r + '/' + tot + '</span></div>';
+  }).join("");
+  el.innerHTML = '<h4 style="font-size:14px;color:var(--navy);margin-bottom:10px">📊 知识点掌握度（按正确率从低到高）</h4>' + rows + '<p class="muted" style="font-size:12px;margin-top:8px">正确率低于 60% 的板块就是薄弱项，回对应标签页补一轮再测。</p>';
+}
+function shuffleOptions(q) {
+  const order = shuffle(q.o.map((_, i) => i));
+  return { q: q.q, o: order.map((i) => q.o[i]), a: order.indexOf(q.a), x: q.x, k: q.k };
+}
+function qzMake(items) { return shuffle(items).map((x) => { const v = shuffleOptions(x.q); v.idx = x.idx; return v; }); }
+function qzStart(n) {
+  let count = n === "all" ? QUIZ.length : (+n || 10);
+  count = Math.max(1, Math.min(count, QUIZ.length));
+  qzList = qzMake(QUIZ.map((q, i) => ({ q, idx: i }))).slice(0, count);
+  qzBegin();
+}
+function qzStartWrong() {
+  const items = Object.keys(wrongBank).filter((k) => wrongBank[k] && QUIZ[+k]).map((k) => ({ q: QUIZ[+k], idx: +k }));
+  if (!items.length) { alert("错题本还是空的，先做一轮测验吧。"); return; }
+  qzList = qzMake(items); qzBegin();
+}
+function qzBegin() {
+  qzIdx = 0; qzScore = 0; qzWrong = [];
+  $("#quizHome").style.display = "none"; $("#quizRun").style.display = "block"; qzRender();
+}
+$$("#quizHome [data-n]").forEach((b) => b.addEventListener("click", () => qzStart(b.dataset.n)));
+$("#wrongStart").addEventListener("click", qzStartWrong);
+function qzRender() {
+  const q = qzList[qzIdx];
+  const opts = q.o.map((opt, oi) => '<button class="quiz-opt" data-oi="' + oi + '">' + "ABCD"[oi] + ". " + esc(opt) + '</button>').join("");
+  $("#quizRun").innerHTML = '<div class="card"><div class="muted" style="margin-bottom:8px">第 ' + (qzIdx + 1) + ' / ' + qzList.length + ' 题 · 当前得分 ' + qzScore + '</div>' +
+    '<div class="progress"><i style="width:' + (qzIdx / qzList.length * 100) + '%"></i></div>' +
+    '<p style="font-size:16px;font-weight:700;margin:14px 0 12px">' + esc(q.q) + '</p>' + opts +
+    '<div id="qzExp"></div><div style="margin-top:12px"><button class="btn btn-p" id="qzNext" style="display:none">下一题 →</button></div></div>';
+  $$("#quizRun .quiz-opt").forEach((b) => {
+    b.addEventListener("click", () => {
+      $$("#quizRun .quiz-opt").forEach((x) => x.disabled = true);
+      const oi = +b.dataset.oi;
+      if (oi === q.a) {
+        b.classList.add("correct"); qzScore++;
+        if (wrongBank[q.idx]) { delete wrongBank[q.idx]; saveWrongBank(); }
+        bumpTopic(q.k, true);
+      } else {
+        b.classList.add("wrong"); $$("#quizRun .quiz-opt")[q.a].classList.add("correct");
+        qzWrong.push({ q, chosen: oi }); wrongBank[q.idx] = true; saveWrongBank(); bumpTopic(q.k, false);
+      }
+      const correctText = "ABCD"[q.a] + ". " + esc(q.o[q.a]);
+      const chosenText = "ABCD"[oi] + ". " + esc(q.o[oi]);
+      const head = oi === q.a ? "✅ 答对了！" : "❌ 答错了。你选了 " + chosenText;
+      $("#qzExp").innerHTML = '<div class="quiz-exp">' + head + '<br><b>正确答案：' + correctText + '</b><br>📖 解析：' + esc(q.x) + '</div>';
+      $("#qzNext").style.display = "inline-block";
+    });
+  });
+  $("#qzNext").addEventListener("click", () => { qzIdx++; if (qzIdx < qzList.length) qzRender(); else qzEnd(); });
+}
+function qzEnd() {
+  const total = qzList.length;
+  const pct = Math.round(qzScore / total * 100);
+  const best = store.get("quizbestpct", 0) || 0;
+  if (pct > best) { store.set("quizbestpct", pct); store.set("quizbestmeta", { score: qzScore, total, at: Date.now() }); }
+  renderBest();
+  const msg = pct >= 90 ? "🏆 优秀！可以去面试了" : pct >= 70 ? "👍 良好，错题复习一下更稳" : pct >= 50 ? "📚 及格线附近，建议回术语/剪映补课" : "🔁 别灰心，先通读术语词典再回来";
+  let wrongHtml = "";
+  if (qzWrong.length) {
+    wrongHtml = '<div style="text-align:left;margin-top:18px"><b>❌ 本轮错题（' + qzWrong.length + ' 题，已进入错题本）</b>' +
+      qzWrong.map((w) => '<div style="border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:10px"><b>' + esc(w.q.q) + '</b><br><span style="color:var(--red)">你选了：' + "ABCD"[w.chosen] + '. ' + esc(w.q.o[w.chosen]) + '</span><br><span style="color:var(--green)">正确答案：' + "ABCD"[w.q.a] + '. ' + esc(w.q.o[w.q.a]) + '</span><br><span class="muted">' + esc(w.q.x) + '</span></div>').join("") + '</div>';
+  }
+  const wc = wrongCount();
+  $("#quizRun").innerHTML = '<div class="card" style="text-align:center"><div class="score-big">' + qzScore + ' / ' + total + '</div><p style="font-size:18px;font-weight:700;color:var(--blue)">' + pct + ' 分 · ' + msg + '</p>' + wrongHtml +
+    '<div style="display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap"><button class="btn btn-p" id="qzAgain">🔄 返回首页</button>' +
+    (wc ? '<button class="btn btn-o" id="qzWrongOnly">🎯 只练错题（' + wc + '题）</button>' : '') + '</div></div>';
+  $("#qzAgain").addEventListener("click", () => { $("#quizRun").style.display = "none"; $("#quizHome").style.display = "block"; refreshWrongUI(); });
+  const wo = document.getElementById("qzWrongOnly"); if (wo) wo.addEventListener("click", qzStartWrong);
+}
+function renderBest() {
+  const pct = store.get("quizbestpct", 0) || 0;
+  const meta = store.get("quizbestmeta", null);
+  const el = $("#quizBest"); if (!el) return;
+  el.textContent = !pct ? "—" : pct + " 分" + (meta && meta.total ? "（" + meta.score + "/" + meta.total + "）" : "");
+}
+$("#quizBestReset").addEventListener("click", () => {
+  if (!confirm("清除历史最高分记录？")) return;
+  store.del("quizbestpct"); store.del("quizbestmeta"); renderBest();
+});
+
+/* ================= 2 小时计时器 ================= */
+let testMode = "std";
+let testPhases = TEST_PHASES;
+let testTotal = 120 * 60;
+let testRemain = testTotal;
+let testEndAt = 0;
+let testRunning = false;
+let testInterval = null;
+
+function fmtTime(sec) {
+  sec = Math.max(0, Math.floor(sec));
+  const h = String(Math.floor(sec / 3600)).padStart(2, "0");
+  const m = String(Math.floor((sec % 3600) / 60)).padStart(2, "0");
+  const s = String(sec % 60).padStart(2, "0");
+  return h + ":" + m + ":" + s;
+}
+function renderTestPhases() {
+  $("#testPhaseList").innerHTML = testPhases.map((p) => '<div class="phase" data-s="' + p.s + '" data-e="' + p.e + '"><span class="pt">' + p.s + "—" + p.e + "′</span><span class=\"pd\"><b>" + esc(p.t) + "</b><br>" + esc(p.d) + '</span><span class="ph">' + esc(p.h) + '</span></div>').join("");
+}
+function updateTestUI() {
+  const elapsed = testTotal - testRemain;
+  const min = elapsed / 60;
+  let idx = testPhases.findIndex((p) => min >= p.s && min < p.e);
+  if (idx < 0) idx = testPhases.length - 1;
+  $$("#testPhaseList .phase").forEach((el, i) => {
+    el.classList.toggle("active", i === idx);
+    el.classList.toggle("done", i < idx);
+  });
+  const p = testPhases[idx] || testPhases[testPhases.length - 1];
+  setText("testPhaseNow", "当前：" + p.t);
+  setText("testHard", "硬标准：" + p.h);
+  const big = $("#testBig");
+  big.textContent = fmtTime(testRemain);
+  big.classList.toggle("warn", testRemain <= 600 && testRemain > 0);
+  big.classList.toggle("done", testRemain <= 0);
+  const pct = Math.max(0, Math.min(100, (1 - testRemain / testTotal) * 100));
+  $("#testProgress").style.width = pct + "%";
+}
+function stopTest() {
+  testRunning = false;
+  if (testInterval) { clearInterval(testInterval); testInterval = null; }
+  $("#testStart").textContent = "▶ 继续计时";
+}
+function startTest() {
+  if (testRunning) { testRemain = Math.max(0, Math.round((testEndAt - Date.now()) / 1000)); stopTest(); updateTestUI(); return; }
+  if (testRemain <= 0) testRemain = testTotal;
+  testEndAt = Date.now() + testRemain * 1000;
+  testRunning = true;
+  $("#testStart").textContent = "⏸ 暂停";
+  testInterval = setInterval(() => {
+    testRemain = Math.max(0, Math.round((testEndAt - Date.now()) / 1000));
+    updateTestUI();
+    if (testRemain <= 0) { stopTest(); $("#testStart").textContent = "▶ 重新开始"; }
+  }, 250);
+  updateTestUI();
+}
+function resetTest() {
+  stopTest(); testRemain = testTotal; $("#testStart").textContent = "▶ 开始计时"; updateTestUI();
+}
+function setTestMode(mode) {
+  testMode = mode;
+  testPhases = mode === "sos" ? EMERGENCY_PHASES : TEST_PHASES;
+  testTotal = (mode === "sos" ? 15 : 120) * 60;
+  testRemain = testTotal;
+  stopTest(); renderTestPhases(); updateTestUI();
+  $("#testStart").textContent = "▶ 开始计时";
+  $("#testModeStd").style.background = mode === "std" ? "rgba(255,255,255,.2)" : "rgba(255,255,255,.06)";
+  $("#testModeSos").style.background = mode === "sos" ? "rgba(232,93,74,.5)" : "rgba(255,255,255,.06)";
+}
+$("#testStart").addEventListener("click", startTest);
+$("#testReset").addEventListener("click", resetTest);
+$("#testModeStd").addEventListener("click", () => setTestMode("std"));
+$("#testModeSos").addEventListener("click", () => setTestMode("sos"));
+
+/* ================= 学习计划 / 检查清单 ================= */
+const preState = store.get("pre", {});
+const testState = store.get("testCheck", {});
+const planState = store.get("plan", {});
+function renderCheckList(container, items, state) {
+  container.innerHTML = items.map((x, i) => '<label class="check-line ' + (state[i] ? "done" : "") + '"><input type="checkbox" data-key="' + i + '" ' + (state[i] ? "checked" : "") + '><span>' + esc(x) + '</span></label>').join("");
+}
+function bindCheckList(container, state, storeKey) {
+  container.addEventListener("change", (e) => {
+    const inp = e.target.closest('input[type="checkbox"]');
+    if (!inp) return;
+    const key = inp.dataset.key;
+    state[key] = inp.checked;
+    inp.closest(".check-line").classList.toggle("done", inp.checked);
+    store.set(storeKey, state);
+  });
+}
+function planRender() {
+  let done = 0, total = 0;
+  $("#planList").innerHTML = PLAN_DAYS.map((d) => {
+    const items = d.items.map((it, i) => {
+      const key = d.d + "|" + i, on = !!planState[key];
+      total++; if (on) done++;
+      return '<label class="plan-item ' + (on ? "done" : "") + '"><input type="checkbox" data-key="' + key + '" ' + (on ? "checked" : "") + '><span>' + esc(it) + '</span></label>';
+    }).join("");
+    const dn = d.items.filter((_, i) => planState[d.d + "|" + i]).length;
+    return '<div class="card"><div class="weekbar"><h3>' + d.d + " · " + esc(d.title) + '</h3><span class="badge">' + dn + "/" + d.items.length + '</span></div><div class="progress"><i style="width:' + (dn / d.items.length * 100) + '%"></i></div>' + items + '</div>';
+  }).join("");
+  $("#planBar").style.width = (total ? done / total * 100 : 0) + "%";
+  setText("planPct", "已完成 " + done + " / " + total + " 项");
+}
+$("#planList").addEventListener("change", (e) => {
+  const inp = e.target.closest('input[type="checkbox"]');
+  if (!inp) return;
+  planState[inp.dataset.key] = inp.checked;
+  store.set("plan", planState); planRender();
+});
+$("#planReset").addEventListener("click", () => {
+  if (!confirm("重置 7 天学习计划的全部勾选？")) return;
+  Object.keys(planState).forEach((k) => delete planState[k]);
+  store.set("plan", planState); planRender();
+});
+
+/* ================= BPM 计算器 ================= */
+function updateBpm() {
+  const bpm = Math.max(1, +$("#bpmInput").value || 90);
+  const fps = Math.max(1, +$("#fpsInput").value || 30);
+  const beat = 60 / bpm;
+  $("#beatSec").textContent = beat.toFixed(3) + " s";
+  $("#beatFrames").textContent = (beat * fps).toFixed(1) + " 帧";
+  $("#beat2").textContent = (beat * 2).toFixed(3) + " s";
+  $("#beat4").textContent = (beat * 4).toFixed(3) + " s";
+  $("#bpmTip").textContent = "💡 当前 " + bpm + " BPM，一拍约 " + (beat * fps).toFixed(0) + " 帧（" + fps + "fps）。强拍给动作，弱拍给眼神/字幕；画面比拍点早 1—2 帧。";
+}
+$("#bpmInput").addEventListener("input", updateBpm);
+$("#fpsInput").addEventListener("change", updateBpm);
+
+/* ================= 脚本字数估算 ================= */
+function updateScript() {
+  const raw = $("#scriptText").value || "";
+  const chars = raw.replace(/\s/g, "").length;
+  const sec = chars / 4.5;
+  setText("scriptChars", chars);
+  setText("scriptSec", sec ? sec.toFixed(1) + " 秒" : "—");
+  const advice = !chars ? "—" : sec < 35 ? "偏短：可以再加一个反转/细节" : sec <= 70 ? "刚好：适合 45—75 秒" : "偏长：删到 300 字以内";
+  setText("scriptAdvice", advice);
+}
+$("#scriptText").addEventListener("input", updateScript);
+
+/* ================= 速查表打印 ================= */
+$("#printBtn").addEventListener("click", () => {
+  const area = document.getElementById("printArea");
+  const src = document.getElementById("sheetBody");
+  if (!area || !src) return;
+  area.innerHTML = src.innerHTML;
+  document.body.classList.add("printing");
+  let cleaned = false;
+  function cleanup() {
+    if (cleaned) return;
+    cleaned = true;
+    document.body.classList.remove("printing");
+    area.innerHTML = "";
+    window.removeEventListener("afterprint", cleanup);
+  }
+  window.addEventListener("afterprint", cleanup);
+  setTimeout(() => { try { window.print(); } catch (e) {} setTimeout(cleanup, 1500); }, 60);
+});
+$("#handoffCopy").addEventListener("click", (e) => copyText($("#handoffText").textContent, e.currentTarget));
+
+/* ================= 折叠面板 ================= */
+function initDisclosures() {
+  $$(".acc-head, .qa-q").forEach((h) => {
+    h.setAttribute("role", "button");
+    h.setAttribute("tabindex", "0");
+    h.setAttribute("aria-expanded", h.parentElement.classList.contains("open") ? "true" : "false");
+  });
+}
+function toggleDisclosure(h) {
+  const open = h.parentElement.classList.toggle("open");
+  h.setAttribute("aria-expanded", open ? "true" : "false");
+}
+document.addEventListener("click", (e) => {
+  const h = e.target.closest ? e.target.closest(".acc-head, .qa-q") : null;
+  if (h) toggleDisclosure(h);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+  const h = e.target.closest ? e.target.closest(".acc-head, .qa-q") : null;
+  if (h && h === e.target) { e.preventDefault(); toggleDisclosure(h); }
+});
+
+
+<!-- ===== app_init.js ===== -->
+/* ================= 初始化 ================= */
+function initApp() {
+  renderTerms();
+  renderHooks();
+  renderEditSteps();
+  renderChars();
+  renderShots();
+  renderQA();
+
+  refreshMockStats();
+  renderBest();
+  refreshWrongUI();
+  renderTopics();
+
+  setTestMode("std");
+  renderCheckList($("#preChecks"), PRE_CHECKS, preState);
+  bindCheckList($("#preChecks"), preState, "pre");
+  renderCheckList($("#testChecks"), TEST_CHECKS, testState);
+  bindCheckList($("#testChecks"), testState, "testCheck");
+  planRender();
+
+  updateBpm();
+  updateScript();
+  fillPG();
+  buildPG();
+
+  setText("statTerms", TERMS.length + "+");
+  setText("statQA", QA.length);
+  setText("statQuiz", QUIZ.length);
+  setText("qaTotal", QA.length);
+  setText("quizTotal", QUIZ.length);
+  const allBtn = document.getElementById("quizAllBtn");
+  if (allBtn) allBtn.textContent = "全题库 · " + QUIZ.length + "题";
+
+  initTab();
+  initDisclosures();
+}
+
+initApp();
+window.addEventListener("load", () => { syncNavHeight(); window.scrollTo(0, 0); });
+window.addEventListener("resize", syncNavHeight);
+window.addEventListener("orientationchange", () => setTimeout(syncNavHeight, 200));
+
+
+<!-- ===== tail.html ===== -->
+
+</script>
+</body>
+</html>
+
